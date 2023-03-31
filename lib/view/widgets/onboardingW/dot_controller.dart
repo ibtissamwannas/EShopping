@@ -1,9 +1,6 @@
 import 'package:e_shopping/controller/onboarding_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:get/get.dart';
-
 import '../../../core/constants/colors.dart';
 import '../../../data/static/static.dart';
 
@@ -27,8 +24,11 @@ class DotController extends StatelessWidget {
                         color: controller.currentPage == index
                             ? AppColor.primaryColor
                             : AppColor.lightGrey,
-                        borderRadius: BorderRadius.circular(10)),
-                  )),
+                        borderRadius: BorderRadius.circular(10,
+                        ),
+                    ),
+                  ),
+          ),
         ],
       );
     });

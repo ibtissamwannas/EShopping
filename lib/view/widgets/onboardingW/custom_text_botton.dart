@@ -34,7 +34,7 @@ class CustomTextButton extends GetView<OnBoardingControllerImp> {
           child: Text(
             "Next",
             style: TextStyle(
-              color: AppColor.whiteColor,
+              color: AppColor.backGroundColor,
               fontSize: 17,
             ),
           ),

@@ -1,9 +1,11 @@
+import 'package:e_shopping/core/constants/router_name.dart';
+import 'package:e_shopping/core/localization/change_local.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../widgets/language/CustomeBottonLang.dart';
 
-class Language extends StatelessWidget {
+class Language extends GetView<LocaleController> {
   const Language({Key? key}) : super(key: key);
 
   @override
@@ -15,12 +17,18 @@ class Language extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text("choose Language",style: Theme.of(context).textTheme.headline1,),
+            Text("1".tr,style: Theme.of(context).textTheme.headline1,),
             SizedBox(
               height: Get.height*0.05,
             ),
-            CustomButtonLang(textbutton: "Ar",onPressed: (){},),
-            CustomButtonLang(textbutton: "En",onPressed: (){},),
+            CustomButtonLang(textbutton: "Ar",onPressed: (){
+              controller.changeLang("ar");
+              Get.toNamed(AppRoutes.onBoarding);
+            },),
+            CustomButtonLang(textbutton: "En",onPressed: (){
+              controller.changeLang("en");
+              Get.toNamed(AppRoutes.onBoarding);
+            },),
           ],
         ),
       ),
