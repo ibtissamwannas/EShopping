@@ -4,8 +4,9 @@ import '../../../core/constants/colors.dart';
 class CustomTextFormPass extends StatefulWidget {
   final String hintText;
   final String svgPicture;
-  final TextEditingController? myController;
-  const CustomTextFormPass({Key? key, required this.hintText, required this.svgPicture, this.myController}) : super(key: key);
+  final TextEditingController myController;
+  final  String? Function(String?)? validator;
+  const CustomTextFormPass({Key? key, required this.hintText, required this.svgPicture, required this.myController, this.validator}) : super(key: key);
 
   @override
   State<CustomTextFormPass> createState() => _CustomTextFormPassState();
@@ -16,6 +17,7 @@ class _CustomTextFormPassState extends State<CustomTextFormPass> {
   Widget build(BuildContext context) {
     return TextFormField(
       controller: widget.myController,
+      validator: widget.validator,
       decoration: InputDecoration(
         prefixIcon: Padding(
           padding: const EdgeInsets.all(12.0),

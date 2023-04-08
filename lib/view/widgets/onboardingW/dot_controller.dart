@@ -16,10 +16,9 @@ class DotController extends StatelessWidget {
               onBoardingList.length,
               (index) => AnimatedContainer(
                     margin: EdgeInsets.only(left: 5),
-                    duration: Duration(microseconds: 900),
-                    curve: Curves.bounceIn,
-                    width:controller.currentPage == index? 15:8,
-                    height: 5,
+                    duration: Duration(milliseconds: 900),
+                    width:controller.currentPage == index? 25:6,
+                    height: 6,
                     decoration: BoxDecoration(
                         color: controller.currentPage == index
                             ? AppColor.primaryColor

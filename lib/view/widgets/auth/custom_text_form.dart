@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import '../../../core/constants/colors.dart';
 class CustomTextForm extends StatefulWidget {
   final String hintText;
   final String svgPicture;
-  final TextEditingController? myController;
-  const CustomTextForm({Key? key, required this.hintText, required this.svgPicture,  this.myController}) : super(key: key);
+  final TextEditingController myController;
+  final  String? Function(String?)? validator;
+  const CustomTextForm({Key? key, required this.hintText, required this.svgPicture,  required this.myController, this.validator}) : super(key: key);
 
   @override
   State<CustomTextForm> createState() => _CustomTextFormState();
@@ -16,6 +16,7 @@ class _CustomTextFormState extends State<CustomTextForm> {
   Widget build(BuildContext context) {
     return TextFormField(
       controller: widget.myController,
+      validator: widget.validator,
       decoration: InputDecoration(
         prefixIcon: Padding(
           padding: const EdgeInsets.all(12.0),

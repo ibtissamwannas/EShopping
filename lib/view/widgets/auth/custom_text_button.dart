@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../core/constants/colors.dart';
 class CustomTextButtonAuth extends StatefulWidget {
   final String text;
-  const CustomTextButtonAuth({Key? key, required this.text}) : super(key: key);
+  final void Function()? onPressed;
+  const CustomTextButtonAuth({Key? key, required this.text, this.onPressed}) : super(key: key);
 
   @override
   State<CustomTextButtonAuth> createState() => _CustomTextButtonAuthState();
@@ -28,9 +29,7 @@ class _CustomTextButtonAuthState extends State<CustomTextButtonAuth> {
                   borderRadius: BorderRadius.circular(10.0),
                   // side: BorderSide(color: Colors.red)
                 ))),
-        onPressed: () {
-          // controller.goNext();
-        },
+        onPressed: widget.onPressed,
         child: Text(
           widget.text,
           style: TextStyle(

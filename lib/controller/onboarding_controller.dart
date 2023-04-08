@@ -20,8 +20,8 @@ class OnBoardingControllerImp extends OnBoardingContainer {
     } else {
       pageController.animateToPage(
         currentPage,
-        duration: Duration(microseconds: 90),
-        curve: Curves.bounceIn,
+        duration: Duration(milliseconds: 90),
+        curve: Curves.easeInOut,
       );
     }
   }

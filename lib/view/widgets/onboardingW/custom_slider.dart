@@ -27,7 +27,7 @@ class CustomSlider extends GetView<OnBoardingControllerImp> {
                 ),
                 Text(
                   onBoardingList[i].title,
-                  style: Theme.of(context).textTheme.headline1,
+                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24,color: Colors.black),
                 ),
                 Container(
                     width: double.infinity,
@@ -37,7 +37,7 @@ class CustomSlider extends GetView<OnBoardingControllerImp> {
                       child: Text(
                         onBoardingList[i].body,
                         textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.bodyText1,
+                        style: const TextStyle(color: AppColor.textGrey,fontSize: 17),
                       ),
                     )),
               ],

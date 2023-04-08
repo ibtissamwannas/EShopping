@@ -1,12 +1,14 @@
+import 'package:e_shopping/controller/auth/sign_up_controller.dart';
 import 'package:e_shopping/core/constants/colors.dart';
+import 'package:e_shopping/core/constants/image_assets.dart';
 import 'package:e_shopping/core/constants/router_name.dart';
 import 'package:e_shopping/view/widgets/auth/custom_big_text.dart';
 import 'package:e_shopping/view/widgets/auth/custom_medium_text.dart';
 import 'package:e_shopping/view/widgets/auth/custom_text_button.dart';
 import 'package:e_shopping/view/widgets/auth/custom_text_field_pass.dart';
 import 'package:e_shopping/view/widgets/auth/custom_text_form.dart';
+import 'package:e_shopping/view/widgets/auth/custom_text_signup_or_signin.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 class SignUp extends StatelessWidget {
@@ -14,9 +16,9 @@ class SignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SignUpControllerImp controller = Get.put(SignUpControllerImp());
     return Scaffold(
         backgroundColor: AppColor.backgroundGreyColor,
-       
         body: SafeArea(
           child: SingleChildScrollView(
             child: Container(
@@ -29,51 +31,75 @@ class SignUp extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset("assets/images/eshopping-low-resolution-color-logo-removebg-preview.png",width: 180,height: 160,fit: BoxFit.cover,)
+                      Image.asset(
+                        AppImageAssets.logo,
+                        width: 180,
+                        height: 160,
+                        fit: BoxFit.cover,
+                      )
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
-                  CustomBigText(text: "Create an account"),
-                  SizedBox(
+                  const CustomBigText(text: "Create an account"),
+                  const SizedBox(
                     height: 10,
                   ),
-                  CustomMediumText(text: "And start shopping !"),
-                  SizedBox(
+                  const CustomMediumText(text: "And start shopping !"),
+                  const SizedBox(
                     height: 40,
                   ),
-                  CustomTextForm(hintText: "Email Address", svgPicture: 'assets/images/Group.svg'),
-                  SizedBox(
+                  CustomTextForm(
+                    hintText: "UserName",
+                    svgPicture: 'assets/images/user.svg',
+                    myController: controller.username,
+                  ),
+                  const SizedBox(
                     height: 10,
                   ),
-                  CustomTextForm(hintText: "phone number", svgPicture: 'assets/images/telephone 1.svg',),
-                  SizedBox(
+                  CustomTextForm(
+                    hintText: "Email Address",
+                    svgPicture: 'assets/images/Group.svg',
+                    myController: controller.email,
+                  ),
+                  const SizedBox(
                     height: 10,
                   ),
-                  CustomTextFormPass(hintText: "Password", svgPicture: 'assets/images/Group 5.svg'),
-                  SizedBox(
+                  CustomTextForm(
+                    hintText: "phone number",
+                    svgPicture: 'assets/images/telephone 1.svg',
+                    myController: controller.phoneNumber,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  CustomTextFormPass(
+                    hintText: "Password",
+                    svgPicture: 'assets/images/Group 5.svg',
+                    myController: controller.password,
+                  ),
+                  const SizedBox(
                     height: 30,
                   ),
-                  CustomTextButtonAuth(text: 'Sign Up'),
-                  SizedBox(
+                  CustomTextButtonAuth(
+                    text: 'Sign Up',
+                    onPressed: () => controller.signUp(),
+                  ),
+                  const SizedBox(
                     height: 50,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("Already have an account ? ",style: Theme.of(context).textTheme.bodyText2,),
-                      GestureDetector(
-                          onTap: (){
-                            Get.toNamed(AppRoutes.login);
-                          },
-                          child: Text("Sign Up",style: Theme.of(context).textTheme.headline1?.merge(TextStyle(fontSize: 17,)),)),
-                    ],
-                  ),
-                ],),
+                  CustomTextSignUpOrSignIn(
+                    fistText: "Already have an account ? ",
+                    secondText: "Login",
+                    onTap: () {
+                      controller.goToLogin();
+                    },
+                  )
+                ],
+              ),
             ),
           ),
-        )
-    );
+        ));
   }
 }
