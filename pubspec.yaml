@@ -88,7 +88,7 @@ dev_dependencies:
 flutter_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/icons/shopping-cart.png"
+  image_path: "assets/images/eshopping-low-resolution-color-logo-removebg-preview.png"
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

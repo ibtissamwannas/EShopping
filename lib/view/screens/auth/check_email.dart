@@ -51,10 +51,22 @@ class _CheckEmailState extends State<CheckEmail> {
               SizedBox(
                 height: 80,
               ),
-              CustomTextForm(
-                hintText: "Email Address",
-                svgPicture: 'assets/images/Group.svg',
-                myController: controller.email,
+              Container(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.06),
+                      spreadRadius: 0.1,
+                      blurRadius: 20,
+                      offset: Offset(0, 2), // changes position of shadow
+                    ),
+                  ],
+                ),
+                child: CustomTextForm(
+                  hintText: "Email Address",
+                  svgPicture: 'assets/images/Group.svg',
+                  myController: controller.email,
+                ),
               ),
               SizedBox(
                 height: 20,

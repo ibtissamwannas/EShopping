@@ -1,7 +1,5 @@
 import 'package:e_shopping/controller/auth/sign_up_controller.dart';
 import 'package:e_shopping/core/constants/colors.dart';
-import 'package:e_shopping/core/constants/image_assets.dart';
-import 'package:e_shopping/core/constants/router_name.dart';
 import 'package:e_shopping/view/widgets/auth/custom_big_text.dart';
 import 'package:e_shopping/view/widgets/auth/custom_medium_text.dart';
 import 'package:e_shopping/view/widgets/auth/custom_text_button.dart';
@@ -20,83 +18,70 @@ class SignUp extends StatelessWidget {
     return Scaffold(
         backgroundColor: AppColor.backgroundGreyColor,
         body: SafeArea(
-          child: SingleChildScrollView(
-            child: Container(
-              padding: EdgeInsets.all(15),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset(
-                        AppImageAssets.logo,
-                        width: 180,
-                        height: 160,
-                        fit: BoxFit.cover,
-                      )
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  const CustomBigText(text: "Create an account"),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  const CustomMediumText(text: "And start shopping !"),
-                  const SizedBox(
-                    height: 40,
-                  ),
-                  CustomTextForm(
-                    hintText: "UserName",
-                    svgPicture: 'assets/images/user.svg',
-                    myController: controller.username,
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  CustomTextForm(
-                    hintText: "Email Address",
-                    svgPicture: 'assets/images/Group.svg',
-                    myController: controller.email,
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  CustomTextForm(
-                    hintText: "phone number",
-                    svgPicture: 'assets/images/telephone 1.svg',
-                    myController: controller.phoneNumber,
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  CustomTextFormPass(
-                    hintText: "Password",
-                    svgPicture: 'assets/images/Group 5.svg',
-                    myController: controller.password,
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  CustomTextButtonAuth(
-                    text: 'Sign Up',
-                    onPressed: () => controller.signUp(),
-                  ),
-                  const SizedBox(
-                    height: 50,
-                  ),
-                  CustomTextSignUpOrSignIn(
-                    fistText: "Already have an account ? ",
-                    secondText: "Login",
-                    onTap: () {
-                      controller.goToLogin();
-                    },
-                  )
-                ],
+          child: Center(
+            child: SingleChildScrollView(
+              child: Container(
+                padding: EdgeInsets.all(15),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const CustomBigText(text: "Create an account"),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    const CustomMediumText(text: "And start shopping !"),
+                    const SizedBox(
+                      height: 40,
+                    ),
+                    CustomTextForm(
+                      hintText: "UserName",
+                      svgPicture: 'assets/images/user.svg',
+                      myController: controller.username,
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    CustomTextForm(
+                      hintText: "Email Address",
+                      svgPicture: 'assets/images/Group.svg',
+                      myController: controller.email,
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    CustomTextForm(
+                      hintText: "phone number",
+                      svgPicture: 'assets/images/telephone 1.svg',
+                      myController: controller.phoneNumber,
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    CustomTextFormPass(
+                      hintText: "Password",
+                      svgPicture: 'assets/images/Group 5.svg',
+                      myController: controller.password,
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    CustomTextButtonAuth(
+                      text: 'Sign Up',
+                      onPressed: () => controller.signUp(),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    CustomTextSignUpOrSignIn(
+                      fistText: "Already have an account ? ",
+                      secondText: "Login",
+                      onTap: () {
+                        controller.goToLogin();
+                      },
+                    )
+                  ],
+                ),
               ),
             ),
           ),
