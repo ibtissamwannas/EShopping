@@ -4,7 +4,7 @@ import 'package:e_shopping/view/widgets/auth/custom_big_text.dart';
 import 'package:e_shopping/view/widgets/auth/custom_medium_text.dart';
 import 'package:e_shopping/view/widgets/auth/custom_text_button.dart';
 import 'package:e_shopping/view/widgets/auth/custom_text_field_pass.dart';
-import 'package:e_shopping/view/widgets/auth/custom_text_form.dart';
+import 'package:e_shopping/view/widgets/auth/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../controller/auth/login_controller.dart';
@@ -44,7 +44,7 @@ class Login extends StatelessWidget {
                       ),
                       CustomTextForm(
                         hintText: "Email Address",
-                        svgPicture: 'assets/images/Group.svg',
+                        svgPicture: 'assets/images/auth/email.svg',
                         myController: controller.email,
                         validator: (val) {
                           return validInput(val, 5, 100, "email");
@@ -55,7 +55,7 @@ class Login extends StatelessWidget {
                       ),
                       CustomTextFormPass(
                           hintText: "Password",
-                          svgPicture: 'assets/images/Group 5.svg',
+                          svgPicture: 'assets/images/auth/password.svg',
                           myController: controller.password,
                           validator: (val) {
                             return validInput(val, 5, 30, "password");

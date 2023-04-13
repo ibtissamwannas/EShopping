@@ -15,12 +15,12 @@ class CustomTextButton extends GetView<OnBoardingControllerImp> {
         width: 500,
         height: 55,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10.0),
-          gradient: LinearGradient(colors: [AppColor.primaryColor,AppColor.secondaryColor])
-        ),
+            borderRadius: BorderRadius.circular(10.0),
+            gradient: LinearGradient(
+                colors: [AppColor.primaryColor, AppColor.secondaryColor])),
         child: ElevatedButton(
           style: ButtonStyle(
-               backgroundColor: MaterialStateProperty.all(Colors.transparent),
+              backgroundColor: MaterialStateProperty.all(Colors.transparent),
               shadowColor: MaterialStateProperty.all(Colors.transparent),
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(

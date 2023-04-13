@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
+
 class Test extends StatefulWidget {
   const Test({Key? key}) : super(key: key);
 
@@ -30,8 +31,7 @@ class _TestState extends State<Test> {
                 //handle validation or checks here
               },
               //runs when every textfield is filled
-              onSubmit: (String verificationCode){
-              }, // end onSubmit
+              onSubmit: (String verificationCode) {}, // end onSubmit
             ),
           ],
         ),

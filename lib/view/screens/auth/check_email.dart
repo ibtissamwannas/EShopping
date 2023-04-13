@@ -5,7 +5,7 @@ import '../../../../core/constants/colors.dart';
 import '../../widgets/auth/custom_big_text.dart';
 import '../../widgets/auth/custom_medium_text.dart';
 import '../../widgets/auth/custom_text_button.dart';
-import '../../widgets/auth/custom_text_form.dart';
+import '../../widgets/auth/custom_text_form_field.dart';
 
 class CheckEmail extends StatefulWidget {
   const CheckEmail({Key? key}) : super(key: key);

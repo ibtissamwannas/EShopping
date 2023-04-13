@@ -1,12 +1,12 @@
 class AppRoutes {
   static const String login = "/login";
   static const String onBoarding = "/onboarding";
-  static const String signUp = '/signup';
-  static const String forgetPassword = '/forgetpassword';
-  static const String verifyCode = '/verifycode';
-  static const String resetPassword = '/resetpassword';
-  static const String successResetPassword = '/successresetpassword';
-  static const String successSignUp = '/successignup';
-  static const String checkEmail = '/checkemail';
-  static const String verifyCodeSignUp = '/verifycodesignup';
+  static const String signUp = '/sign_up';
+  static const String forgetPassword = '/forget_password';
+  static const String verifyCode = '/verify_code';
+  static const String resetPassword = '/reset_password';
+  static const String successResetPassword = '/success_reset_password';
+  static const String successSignUp = '/success_signup';
+  static const String checkEmail = '/check_email';
+  static const String verifyCodeSignUp = '/verify_code_sign_up';
 }

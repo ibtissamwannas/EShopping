@@ -1,9 +1,7 @@
 import 'package:e_shopping/controller/onboarding_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
-
 import '../../../core/constants/colors.dart';
 import '../../../data/static/static.dart';
 
@@ -21,13 +19,19 @@ class CustomSlider extends GetView<OnBoardingControllerImp> {
         itemBuilder: (context, i) => Column(
               children: [
                 Container(
-                    child: Lottie.asset(onBoardingList[i].image,),),
+                  child: Lottie.asset(
+                    onBoardingList[i].image,
+                  ),
+                ),
                 SizedBox(
                   height: 40,
                 ),
                 Text(
                   onBoardingList[i].title,
-                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24,color: Colors.black),
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 24,
+                      color: Colors.black),
                 ),
                 Container(
                     width: double.infinity,
@@ -37,7 +41,8 @@ class CustomSlider extends GetView<OnBoardingControllerImp> {
                       child: Text(
                         onBoardingList[i].body,
                         textAlign: TextAlign.center,
-                        style: const TextStyle(color: AppColor.textGrey,fontSize: 17),
+                        style: const TextStyle(
+                            color: AppColor.textGrey, fontSize: 17),
                       ),
                     )),
               ],

@@ -5,7 +5,8 @@ import '../../../../core/constants/colors.dart';
 import '../../../widgets/auth/custom_big_text.dart';
 import '../../../widgets/auth/custom_medium_text.dart';
 import '../../../widgets/auth/custom_text_button.dart';
-import '../../../widgets/auth/custom_text_form.dart';
+import '../../../widgets/auth/custom_text_form_field.dart';
+
 class ForgetPassword extends StatefulWidget {
   const ForgetPassword({Key? key}) : super(key: key);
 
@@ -16,14 +17,22 @@ class ForgetPassword extends StatefulWidget {
 class _ForgetPasswordState extends State<ForgetPassword> {
   @override
   Widget build(BuildContext context) {
-    ForgetPasswordControllerImp controller = Get.put(ForgetPasswordControllerImp());
+    ForgetPasswordControllerImp controller =
+        Get.put(ForgetPasswordControllerImp());
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Password Recovery",style: Theme.of(context).textTheme.headline6),
-        leading: IconButton(onPressed: (){
-          Get.back();
-        }, icon: Icon(Icons.arrow_back,color: AppColor.black,),),
+        title: Text("Password Recovery",
+            style: Theme.of(context).textTheme.headline6),
+        leading: IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: Icon(
+            Icons.arrow_back,
+            color: AppColor.black,
+          ),
+        ),
         elevation: 0,
         backgroundColor: AppColor.whiteColor,
       ),
@@ -34,11 +43,15 @@ class _ForgetPasswordState extends State<ForgetPassword> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              CustomBigText(text: "Forget Password",),
+              CustomBigText(
+                text: "Forget Password",
+              ),
               SizedBox(
                 height: 10,
               ),
-              CustomMediumText(text: "Enter your email address to receive verification code "),
+              CustomMediumText(
+                  text:
+                      "Enter your email address to receive verification code "),
               SizedBox(
                 height: 80,
               ),
@@ -53,9 +66,18 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                       ),
                     ],
                   ),
-                  child: CustomTextForm(hintText: "Email Address", svgPicture: 'assets/images/Group.svg',myController: controller.email,)),
-              SizedBox(height: 20,),
-              CustomTextButtonAuth(text: 'Send Link',onPressed: ()=>controller.goToVerifyCode(),),
+                  child: CustomTextForm(
+                    hintText: "Email Address",
+                    svgPicture: 'assets/images/auth/email.svg',
+                    myController: controller.email,
+                  )),
+              SizedBox(
+                height: 20,
+              ),
+              CustomTextButtonAuth(
+                text: 'Send Link',
+                onPressed: () => controller.goToVerifyCode(),
+              ),
             ],
           ),
         ),

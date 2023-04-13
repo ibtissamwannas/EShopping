@@ -7,7 +7,6 @@ import '../../../widgets/auth/custom_big_text.dart';
 import '../../../widgets/auth/custom_medium_text.dart';
 import '../../../widgets/auth/custom_text_button.dart';
 
-
 class ResetPassword extends StatefulWidget {
   const ResetPassword({Key? key}) : super(key: key);
 
@@ -18,12 +17,19 @@ class ResetPassword extends StatefulWidget {
 class _ResetPasswordState extends State<ResetPassword> {
   @override
   Widget build(BuildContext context) {
-    ResetPasswordControllerImp controller = Get.put(ResetPasswordControllerImp());
+    ResetPasswordControllerImp controller =
+        Get.put(ResetPasswordControllerImp());
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(onPressed: (){
-          Get.back();
-        }, icon: Icon(Icons.arrow_back,color: AppColor.black,),),
+        leading: IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: Icon(
+            Icons.arrow_back,
+            color: AppColor.black,
+          ),
+        ),
         elevation: 0,
         backgroundColor: AppColor.whiteColor,
       ),
@@ -34,7 +40,9 @@ class _ResetPasswordState extends State<ResetPassword> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              CustomBigText(text: "Reset Password",),
+              CustomBigText(
+                text: "Reset Password",
+              ),
               SizedBox(
                 height: 10,
               ),
@@ -42,11 +50,26 @@ class _ResetPasswordState extends State<ResetPassword> {
               SizedBox(
                 height: 20,
               ),
-              CustomTextFormPass(hintText: "Password", svgPicture: 'assets/images/Group 5.svg',myController: controller.password,),
-              SizedBox(height: 10,),
-              CustomTextFormPass(hintText: "confirm Password", svgPicture: 'assets/images/Group 5.svg',myController: controller.rePassword,),
-              SizedBox(height: 20,),
-              CustomTextButtonAuth(text: 'save',onPressed: ()=>controller.goToSuccessResetPassword(),),
+              CustomTextFormPass(
+                hintText: "Password",
+                svgPicture: 'assets/images/auth/password.svg',
+                myController: controller.password,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              CustomTextFormPass(
+                hintText: "confirm Password",
+                svgPicture: 'assets/images/auth/password.svg',
+                myController: controller.rePassword,
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              CustomTextButtonAuth(
+                text: 'save',
+                onPressed: () => controller.goToSuccessResetPassword(),
+              ),
             ],
           ),
         ),

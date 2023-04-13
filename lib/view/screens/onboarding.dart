@@ -1,9 +1,9 @@
 import 'package:e_shopping/controller/onboarding_controller.dart';
-import 'package:e_shopping/view/widgets/onboardingW/custom_slider.dart';
-import 'package:e_shopping/view/widgets/onboardingW/custom_text_botton.dart';
+import 'package:e_shopping/view/widgets/onboarding/custom_slider.dart';
+import 'package:e_shopping/view/widgets/onboarding/custom_text_botton.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../widgets/onboardingW/dot_controller.dart';
+import '../widgets/onboarding/dot_controller.dart';
 
 class OnBoarding extends StatelessWidget {
   const OnBoarding({super.key});

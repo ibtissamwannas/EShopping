@@ -4,7 +4,7 @@ import 'package:e_shopping/view/widgets/auth/custom_big_text.dart';
 import 'package:e_shopping/view/widgets/auth/custom_medium_text.dart';
 import 'package:e_shopping/view/widgets/auth/custom_text_button.dart';
 import 'package:e_shopping/view/widgets/auth/custom_text_field_pass.dart';
-import 'package:e_shopping/view/widgets/auth/custom_text_form.dart';
+import 'package:e_shopping/view/widgets/auth/custom_text_form_field.dart';
 import 'package:e_shopping/view/widgets/auth/custom_text_signup_or_signin.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -36,7 +36,7 @@ class SignUp extends StatelessWidget {
                     ),
                     CustomTextForm(
                       hintText: "UserName",
-                      svgPicture: 'assets/images/user.svg',
+                      svgPicture: 'assets/images/auth/user.svg',
                       myController: controller.username,
                     ),
                     const SizedBox(
@@ -44,7 +44,7 @@ class SignUp extends StatelessWidget {
                     ),
                     CustomTextForm(
                       hintText: "Email Address",
-                      svgPicture: 'assets/images/Group.svg',
+                      svgPicture: 'assets/images/auth/email.svg',
                       myController: controller.email,
                     ),
                     const SizedBox(
@@ -52,7 +52,7 @@ class SignUp extends StatelessWidget {
                     ),
                     CustomTextForm(
                       hintText: "phone number",
-                      svgPicture: 'assets/images/telephone 1.svg',
+                      svgPicture: 'assets/images/auth/phone.svg',
                       myController: controller.phoneNumber,
                     ),
                     const SizedBox(
@@ -60,7 +60,7 @@ class SignUp extends StatelessWidget {
                     ),
                     CustomTextFormPass(
                       hintText: "Password",
-                      svgPicture: 'assets/images/Group 5.svg',
+                      svgPicture: 'assets/images/auth/password.svg',
                       myController: controller.password,
                     ),
                     const SizedBox(
