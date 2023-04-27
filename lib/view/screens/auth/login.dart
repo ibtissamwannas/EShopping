@@ -1,4 +1,5 @@
 import 'package:e_shopping/core/constants/colors.dart';
+import 'package:e_shopping/core/functions/alert_exit_app.dart';
 import 'package:e_shopping/core/functions/valid_input.dart';
 import 'package:e_shopping/view/widgets/auth/custom_big_text.dart';
 import 'package:e_shopping/view/widgets/auth/custom_medium_text.dart';
@@ -17,8 +18,10 @@ class Login extends StatelessWidget {
   Widget build(BuildContext context) {
     LoginControllerImp controller = Get.put(LoginControllerImp());
     return Scaffold(
-        backgroundColor: AppColor.backgroundGreyColor,
-        body: SafeArea(
+      backgroundColor: AppColor.backgroundGreyColor,
+      body: WillPopScope(
+        onWillPop: alertExitApp,
+        child: SafeArea(
           child: Center(
             child: SingleChildScrollView(
               child: Container(
@@ -49,17 +52,19 @@ class Login extends StatelessWidget {
                         validator: (val) {
                           return validInput(val, 5, 100, "email");
                         },
+                        isNumber: false,
                       ),
                       SizedBox(
                         height: 10,
                       ),
                       CustomTextFormPass(
-                          hintText: "Password",
-                          svgPicture: 'assets/images/auth/password.svg',
-                          myController: controller.password,
-                          validator: (val) {
-                            return validInput(val, 5, 30, "password");
-                          }),
+                        hintText: "Password",
+                        svgPicture: 'assets/images/auth/password.svg',
+                        myController: controller.password,
+                        validator: (val) {
+                          return validInput(val, 5, 30, "password");
+                        },
+                      ),
                       SizedBox(
                         height: 10,
                       ),
@@ -99,6 +104,8 @@ class Login extends StatelessWidget {
               ),
             ),
           ),
-        ));
+        ),
+      ),
+    );
   }
 }

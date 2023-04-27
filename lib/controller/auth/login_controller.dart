@@ -2,11 +2,12 @@ import 'package:e_shopping/core/constants/router_name.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
-abstract class LoginController extends GetxController{
+abstract class LoginController extends GetxController {
   login();
   goToSignUp();
   goToForgetPassword();
 }
+
 class LoginControllerImp extends LoginController {
   GlobalKey<FormState> formState = GlobalKey<FormState>();
   late TextEditingController email;
@@ -14,16 +15,16 @@ class LoginControllerImp extends LoginController {
   @override
   login() {
     var formStateResp = formState.currentState;
-    if(formStateResp!.validate()){
+    if (formStateResp!.validate()) {
       print("valid");
-    }else{
+    } else {
       print("not valid");
     }
   }
 
   @override
   goToSignUp() {
-    Get.toNamed(AppRoutes.signUp);
+    Get.offNamed(AppRoutes.signUp);
   }
 
   @override

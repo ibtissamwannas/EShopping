@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../core/constants/colors.dart';
+
 class CustomTextFormPass extends StatefulWidget {
   final String hintText;
   final String svgPicture;
   final TextEditingController myController;
-  final  String? Function(String?)? validator;
-  const CustomTextFormPass({Key? key, required this.hintText, required this.svgPicture, required this.myController, this.validator}) : super(key: key);
+  final String? Function(String?)? validator;
+  const CustomTextFormPass(
+      {Key? key,
+      required this.hintText,
+      required this.svgPicture,
+      required this.myController,
+      this.validator})
+      : super(key: key);
 
   @override
   State<CustomTextFormPass> createState() => _CustomTextFormPassState();
@@ -16,6 +23,7 @@ class _CustomTextFormPassState extends State<CustomTextFormPass> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      keyboardType: TextInputType.text,
       controller: widget.myController,
       validator: widget.validator,
       decoration: InputDecoration(
@@ -27,10 +35,12 @@ class _CustomTextFormPassState extends State<CustomTextFormPass> {
             // height: 24,
           ),
         ),
-        suffixIcon:const Padding(
-            padding:  EdgeInsets.all(12.0),
-            child: Icon(Icons.visibility,color: AppColor.lightGrey,)
-        ),
+        suffixIcon: const Padding(
+            padding: EdgeInsets.all(12.0),
+            child: Icon(
+              Icons.visibility,
+              color: AppColor.lightGrey,
+            )),
         hintText: widget.hintText,
         filled: true,
         fillColor: Colors.white,
