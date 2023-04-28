@@ -57,13 +57,19 @@ class Login extends StatelessWidget {
                       SizedBox(
                         height: 10,
                       ),
-                      CustomTextFormPass(
-                        hintText: "Password",
-                        svgPicture: 'assets/images/auth/password.svg',
-                        myController: controller.password,
-                        validator: (val) {
-                          return validInput(val, 5, 30, "password");
-                        },
+                      GetBuilder<LoginControllerImp>(
+                        builder: (controller) => CustomTextFormPass(
+                          obsecureText: controller.isShowPass,
+                          onTapIcon: () {
+                            controller.showPass();
+                          },
+                          hintText: "Password",
+                          svgPicture: 'assets/images/auth/password.svg',
+                          myController: controller.password,
+                          validator: (val) {
+                            return validInput(val, 5, 30, "password");
+                          },
+                        ),
                       ),
                       SizedBox(
                         height: 10,

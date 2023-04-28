@@ -6,12 +6,21 @@ abstract class LoginController extends GetxController {
   login();
   goToSignUp();
   goToForgetPassword();
+  showPass();
 }
 
 class LoginControllerImp extends LoginController {
   GlobalKey<FormState> formState = GlobalKey<FormState>();
   late TextEditingController email;
   late TextEditingController password;
+  bool isShowPass = true;
+
+  @override
+  showPass() {
+    isShowPass = isShowPass == true ? false : true;
+    update();
+  }
+
   @override
   login() {
     var formStateResp = formState.currentState;
