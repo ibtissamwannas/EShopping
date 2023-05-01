@@ -5,7 +5,6 @@ import 'package:e_shopping/routes.dart';
 import 'package:e_shopping/view/screens/language.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'binding.dart';
 
 void main() async {
@@ -26,10 +25,9 @@ class MyApp extends StatelessWidget {
       translations: MyTraslations(),
       title: 'EShopping',
       theme: controller.appTheme,
-      home: const Language(),
-      routes: route,
       locale: controller.language,
       initialBinding: MyBinding(),
+      getPages: routes,
     );
   }
 }

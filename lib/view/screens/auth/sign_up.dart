@@ -8,7 +8,6 @@ import 'package:e_shopping/view/widgets/auth/custom_text_form_field.dart';
 import 'package:e_shopping/view/widgets/auth/custom_text_signup_or_signin.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../core/functions/alert_exit_app.dart';
 import '../../../core/functions/valid_input.dart';
 
@@ -76,13 +75,19 @@ class SignUp extends StatelessWidget {
                       const SizedBox(
                         height: 10,
                       ),
-                      CustomTextFormPass(
-                        hintText: "Password",
-                        svgPicture: 'assets/images/auth/password.svg',
-                        myController: controller.password,
-                        validator: (val) {
-                          return validInput(val, 5, 30, "password");
-                        },
+                      GetBuilder<SignUpControllerImp>(
+                        builder: (controller) => CustomTextFormPass(
+                          obsecureText: controller.isShowPass,
+                          onTapIcon: () {
+                            controller.showPass();
+                          },
+                          hintText: "Password",
+                          svgPicture: 'assets/images/auth/password.svg',
+                          myController: controller.password,
+                          validator: (val) {
+                            return validInput(val, 5, 30, "password");
+                          },
+                        ),
                       ),
                       const SizedBox(
                         height: 30,

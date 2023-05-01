@@ -6,6 +6,7 @@ abstract class SignUpController extends GetxController {
   signUp();
   goToLogin();
   goToForgetPassword();
+  showPass();
 }
 
 class SignUpControllerImp extends SignUpController {
@@ -14,6 +15,14 @@ class SignUpControllerImp extends SignUpController {
   late TextEditingController email;
   late TextEditingController phoneNumber;
   late TextEditingController password;
+  bool isShowPass = true;
+
+  @override
+  showPass() {
+    isShowPass = isShowPass == true ? false : true;
+    update();
+  }
+
   @override
   signUp() {
     var formStateResp = formState.currentState;
@@ -26,7 +35,7 @@ class SignUpControllerImp extends SignUpController {
 
   @override
   goToLogin() {
-    Get.toNamed(AppRoutes.login);
+    Get.offAllNamed(AppRoutes.login);
   }
 
   @override
