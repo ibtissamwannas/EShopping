@@ -1,11 +1,10 @@
+import 'package:e_shopping/bindings/initial_binding.dart';
 import 'package:e_shopping/core/localization/change_local.dart';
 import 'package:e_shopping/core/localization/translation.dart';
 import 'package:e_shopping/core/services/my_services.dart';
 import 'package:e_shopping/routes.dart';
-import 'package:e_shopping/view/screens/language.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'binding.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,7 +25,7 @@ class MyApp extends StatelessWidget {
       title: 'EShopping',
       theme: controller.appTheme,
       locale: controller.language,
-      initialBinding: MyBinding(),
+      initialBinding: InitialBindings(),
       getPages: routes,
     );
   }
