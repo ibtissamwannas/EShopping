@@ -36,7 +36,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   get: ^4.6.5
-  lottie: ^2.2.0
+  lottie: ^2.3.2
   shared_preferences: ^2.0.18
   flutter_otp_text_field: ^1.1.1
   dartz: ^0.10.1
