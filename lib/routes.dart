@@ -15,11 +15,11 @@ import 'package:e_shopping/view/test_view.dart';
 import 'package:get/get.dart';
 
 List<GetPage<dynamic>>? routes = [
-  GetPage(
-    name: "/",
-    page: () => TestView(),
-  ),
-  // GetPage(name: "/", page: () => Language(), middlewares: [MyMiddleware()]),
+  // GetPage(
+  //   name: "/",
+  //   page: () => TestView(),
+  // ),
+  GetPage(name: "/", page: () => Language(), middlewares: [MyMiddleware()]),
   GetPage(name: AppRoutes.login, page: () => Login()),
   GetPage(name: AppRoutes.onBoarding, page: () => OnBoarding()),
   GetPage(name: AppRoutes.signUp, page: () => SignUp()),

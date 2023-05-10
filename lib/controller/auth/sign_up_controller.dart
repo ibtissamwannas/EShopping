@@ -1,6 +1,9 @@
 import 'package:e_shopping/core/constants/router_name.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import '../../core/classes/status_request.dart';
+import '../../core/functions/handling_data.dart';
+import '../../data/datasource/remote/auth/sign_up.dart';
 
 abstract class SignUpController extends GetxController {
   signUp();
@@ -16,6 +19,9 @@ class SignUpControllerImp extends SignUpController {
   late TextEditingController phoneNumber;
   late TextEditingController password;
   bool isShowPass = true;
+  SignUpData SignUpDataData = SignUpData(Get.find());
+  List data = [];
+  StatusRequest? statusRequest;
 
   @override
   showPass() {
@@ -24,10 +30,28 @@ class SignUpControllerImp extends SignUpController {
   }
 
   @override
-  signUp() {
+  signUp() async {
     var formStateResp = formState.currentState;
     if (formStateResp!.validate()) {
-      Get.offNamed(AppRoutes.verifyCodeSignUp);
+      statusRequest = StatusRequest.loading;
+      update();
+      var response = await SignUpDataData.postData(
+          username.text, password.text, email.text, phoneNumber.text);
+      statusRequest = handlingData(response);
+      if (StatusRequest.success == statusRequest) {
+        if (response["status"] == "success") {
+          // data.addAll(response["data"]);
+          Get.offNamed(AppRoutes.verifyCodeSignUp,
+              arguments: {"email": email.text});
+        } else {
+          Get.defaultDialog(
+            title: "warning",
+            middleText: "Phone number or email has already taken",
+          );
+          statusRequest = StatusRequest.failure;
+        }
+      }
+      update();
     } else {
       print("not valid");
     }

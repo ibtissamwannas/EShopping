@@ -10,4 +10,5 @@ class AppImageAssets {
   static const String loading = "$rootImages/loading.json";
   static const String error404 = "$rootImages/error404.json";
   static const String offline = "$rootImages/offline.json";
+  static const String success = "$rootImages/success.json";
 }
