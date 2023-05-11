@@ -1,6 +1,10 @@
 import 'package:e_shopping/core/constants/router_name.dart';
+import 'package:e_shopping/data/datasource/remote/auth/login.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+
+import '../../core/classes/status_request.dart';
+import '../../core/functions/handling_data.dart';
 
 abstract class LoginController extends GetxController {
   login();
@@ -14,6 +18,9 @@ class LoginControllerImp extends LoginController {
   late TextEditingController email;
   late TextEditingController password;
   bool isShowPass = true;
+  LogInData LogInDataData = LogInData(Get.find());
+  List data = [];
+  StatusRequest? statusRequest;
 
   @override
   showPass() {
@@ -22,10 +29,29 @@ class LoginControllerImp extends LoginController {
   }
 
   @override
-  login() {
+  login() async {
     var formStateResp = formState.currentState;
     if (formStateResp!.validate()) {
-      print("valid");
+      statusRequest = StatusRequest.loading;
+
+      update();
+      await Future.delayed(Duration(seconds: 2));
+      var response = await LogInDataData.postData(email.text, password.text);
+      print(response);
+      statusRequest = handlingData(response);
+      if (StatusRequest.success == statusRequest) {
+        if (response["status"] == "success") {
+          // data.addAll(response["data"]);
+          Get.offNamed(AppRoutes.home);
+        } else {
+          Get.defaultDialog(
+            title: "warning",
+            middleText: "${response["message"]}",
+          );
+          statusRequest = StatusRequest.failure;
+        }
+      }
+      update();
     } else {
       print("not valid");
     }

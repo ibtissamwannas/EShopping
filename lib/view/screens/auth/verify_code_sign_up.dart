@@ -67,8 +67,7 @@ class _VerifyCodeSignUpState extends State<VerifyCodeSignUp> {
                             },
                             //runs when every textfield is filled
                             onSubmit: (String verificationCode) {
-                              controller.verifyCode = verificationCode;
-                              controller.checkCode();
+                              controller.checkCode(verificationCode);
                             }, // end onSubmit
                           ),
                         ],

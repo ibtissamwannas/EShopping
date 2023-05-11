@@ -6,7 +6,7 @@ import '../../core/classes/status_request.dart';
 import '../../core/functions/handling_data.dart';
 
 abstract class VerifyCodeSignUpController extends GetxController {
-  checkCode();
+  checkCode(verifyCode);
 }
 
 class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
@@ -17,8 +17,7 @@ class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
   StatusRequest? statusRequest;
 
   @override
-  checkCode() async {
-    print(email);
+  checkCode(verifyCode) async {
     var response = await VerifyCodeData.postData(email!, verifyCode!);
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {

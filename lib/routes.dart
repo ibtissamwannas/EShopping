@@ -1,5 +1,6 @@
 import 'package:e_shopping/core/constants/router_name.dart';
 import 'package:e_shopping/core/middleware/my_middleware.dart';
+import 'package:e_shopping/home.dart';
 import 'package:e_shopping/test.dart';
 import 'package:e_shopping/view/screens/auth/forgetpassword/forget_password.dart';
 import 'package:e_shopping/view/screens/auth/login.dart';
@@ -19,15 +20,49 @@ List<GetPage<dynamic>>? routes = [
   //   name: "/",
   //   page: () => TestView(),
   // ),
-  GetPage(name: "/", page: () => Language(), middlewares: [MyMiddleware()]),
-  GetPage(name: AppRoutes.login, page: () => Login()),
-  GetPage(name: AppRoutes.onBoarding, page: () => OnBoarding()),
-  GetPage(name: AppRoutes.signUp, page: () => SignUp()),
-  GetPage(name: AppRoutes.forgetPassword, page: () => ForgetPassword()),
-  GetPage(name: AppRoutes.resetPassword, page: () => ResetPassword()),
-  GetPage(name: AppRoutes.verifyCode, page: () => VerifyCode()),
   GetPage(
-      name: AppRoutes.successResetPassword, page: () => SuccessResetPassword()),
-  GetPage(name: AppRoutes.successSignUp, page: () => SuccessSignUp()),
-  GetPage(name: AppRoutes.verifyCodeSignUp, page: () => VerifyCodeSignUp()),
+    name: "/",
+    page: () => Language(),
+    middlewares: [MyMiddleware()],
+  ),
+  GetPage(
+    name: AppRoutes.login,
+    page: () => Login(),
+  ),
+  GetPage(
+    name: AppRoutes.onBoarding,
+    page: () => OnBoarding(),
+  ),
+  GetPage(
+    name: AppRoutes.signUp,
+    page: () => SignUp(),
+  ),
+  GetPage(
+    name: AppRoutes.forgetPassword,
+    page: () => ForgetPassword(),
+  ),
+  GetPage(
+    name: AppRoutes.resetPassword,
+    page: () => ResetPassword(),
+  ),
+  GetPage(
+    name: AppRoutes.verifyCode,
+    page: () => VerifyCode(),
+  ),
+  GetPage(
+    name: AppRoutes.successResetPassword,
+    page: () => SuccessResetPassword(),
+  ),
+  GetPage(
+    name: AppRoutes.successSignUp,
+    page: () => SuccessSignUp(),
+  ),
+  GetPage(
+    name: AppRoutes.verifyCodeSignUp,
+    page: () => VerifyCodeSignUp(),
+  ),
+  GetPage(
+    name: AppRoutes.home,
+    page: () => Home(),
+  )
 ];
