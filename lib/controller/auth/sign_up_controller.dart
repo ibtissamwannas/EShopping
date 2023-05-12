@@ -52,8 +52,6 @@ class SignUpControllerImp extends SignUpController {
         }
       }
       update();
-    } else {
-      print("not valid");
     }
   }
 

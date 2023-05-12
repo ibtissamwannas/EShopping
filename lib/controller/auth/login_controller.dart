@@ -2,7 +2,6 @@ import 'package:e_shopping/core/constants/router_name.dart';
 import 'package:e_shopping/data/datasource/remote/auth/login.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-
 import '../../core/classes/status_request.dart';
 import '../../core/functions/handling_data.dart';
 
@@ -33,7 +32,6 @@ class LoginControllerImp extends LoginController {
     var formStateResp = formState.currentState;
     if (formStateResp!.validate()) {
       statusRequest = StatusRequest.loading;
-
       update();
       await Future.delayed(Duration(seconds: 2));
       var response = await LogInDataData.postData(email.text, password.text);
@@ -52,8 +50,6 @@ class LoginControllerImp extends LoginController {
         }
       }
       update();
-    } else {
-      print("not valid");
     }
   }
 
