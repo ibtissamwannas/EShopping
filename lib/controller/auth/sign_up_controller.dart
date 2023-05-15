@@ -21,7 +21,7 @@ class SignUpControllerImp extends SignUpController {
   bool isShowPass = true;
   SignUpData SignUpDataData = SignUpData(Get.find());
   List data = [];
-  StatusRequest? statusRequest;
+  StatusRequest statusRequest = StatusRequest.none;
 
   @override
   showPass() {

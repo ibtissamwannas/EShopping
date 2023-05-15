@@ -15,7 +15,7 @@ class ForgetPasswordControllerImp extends ForgetPasswordController {
   GlobalKey<FormState> formState = GlobalKey<FormState>();
   late TextEditingController email;
   CheckEmailData checkEmailData = CheckEmailData(Get.find());
-  StatusRequest? statusRequest;
+  StatusRequest statusRequest = StatusRequest.none;
 
   @override
   checkEmail() async {
@@ -23,7 +23,6 @@ class ForgetPasswordControllerImp extends ForgetPasswordController {
     if (formStateResp!.validate()) {
       statusRequest = StatusRequest.loading;
       update();
-      await Future.delayed(Duration(seconds: 2));
       var response = await checkEmailData.postData(email.text);
       print(response);
       statusRequest = handlingData(response);

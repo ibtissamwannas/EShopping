@@ -9,6 +9,9 @@ class ResetPasswordData {
       "email": email,
       "password": password,
     });
-    return response.fold((l) => l, (r) => r);
+    return response.fold(
+      (l) => l,
+      (r) => r,
+    );
   }
 }

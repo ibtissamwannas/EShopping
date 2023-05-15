@@ -19,7 +19,7 @@ class LoginControllerImp extends LoginController {
   bool isShowPass = true;
   LogInData LogInDataData = LogInData(Get.find());
   List data = [];
-  StatusRequest? statusRequest;
+  StatusRequest statusRequest = StatusRequest.none;
 
   @override
   showPass() {
@@ -33,7 +33,6 @@ class LoginControllerImp extends LoginController {
     if (formStateResp!.validate()) {
       statusRequest = StatusRequest.loading;
       update();
-      await Future.delayed(Duration(seconds: 2));
       var response = await LogInDataData.postData(email.text, password.text);
       print(response);
       statusRequest = handlingData(response);

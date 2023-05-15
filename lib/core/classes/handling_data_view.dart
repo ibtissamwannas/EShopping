@@ -21,8 +21,13 @@ class HandlingDataView extends StatelessWidget {
             ),
           )
         : statusRequest == StatusRequest.offlineFailuer
-            ? const Center(
-                child: Text("offline"),
+            ? Center(
+                child: LottieBuilder.asset(
+                  AppImageAssets.offline,
+                  repeat: true,
+                  width: 300,
+                  height: 300,
+                ),
               )
             : statusRequest == StatusRequest.serverFailure
                 ? Center(
@@ -34,13 +39,59 @@ class HandlingDataView extends StatelessWidget {
                   )
                 : statusRequest == StatusRequest.failure
                     ? Center(
-                        child: LottieBuilder.asset(
-                          AppImageAssets.noData,
-                          repeat: true,
-                          width: 300,
-                          height: 300,
+                        child: Column(
+                          children: [
+                            LottieBuilder.asset(
+                              AppImageAssets.noData,
+                              repeat: true,
+                              width: 300,
+                              height: 300,
+                            ),
+                            Text("no result")
+                          ],
                         ),
                       )
                     : widget;
+  }
+}
+
+class HandlingDataViewRequest extends StatelessWidget {
+  final StatusRequest statusRequest;
+  final Widget widget;
+  const HandlingDataViewRequest({
+    super.key,
+    required this.statusRequest,
+    required this.widget,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return statusRequest == StatusRequest.loading
+        ? Center(
+            child: LottieBuilder.asset(
+              AppImageAssets.loading,
+              width: 300,
+              height: 300,
+              repeat: true,
+            ),
+          )
+        : statusRequest == StatusRequest.offlineFailuer
+            ? Center(
+                child: LottieBuilder.asset(
+                  AppImageAssets.offline,
+                  repeat: true,
+                  width: 300,
+                  height: 300,
+                ),
+              )
+            : statusRequest == StatusRequest.serverFailure
+                ? Center(
+                    child: LottieBuilder.asset(
+                      AppImageAssets.error404,
+                      width: 300,
+                      height: 300,
+                    ),
+                  )
+                : widget;
   }
 }

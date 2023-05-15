@@ -9,6 +9,9 @@ class VerifyCodeForgetPasswordData {
       "email": email,
       "verifycode": verifycode,
     });
-    return response.fold((l) => l, (r) => r);
+    return response.fold(
+      (l) => l,
+      (r) => r,
+    );
   }
 }

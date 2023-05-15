@@ -14,7 +14,7 @@ class VerifyCodeControllerImp extends VerifyCodeController {
   String? email;
   VerifyCodeForgetPasswordData VerifyCodeData =
       VerifyCodeForgetPasswordData(Get.find());
-  StatusRequest? statusRequest;
+  StatusRequest statusRequest = StatusRequest.none;
 
   @override
   checkCode(verifyCode) async {

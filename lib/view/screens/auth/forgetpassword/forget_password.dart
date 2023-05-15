@@ -1,10 +1,8 @@
 import 'package:e_shopping/controller/auth/forget_password.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
-import '../../../../core/classes/status_request.dart';
+import '../../../../core/classes/handling_data_view.dart';
 import '../../../../core/constants/colors.dart';
-import '../../../../core/constants/image_assets.dart';
 import '../../../../core/functions/valid_input.dart';
 import '../../../widgets/auth/custom_big_text.dart';
 import '../../../widgets/auth/custom_medium_text.dart';
@@ -40,73 +38,65 @@ class _ForgetPasswordState extends State<ForgetPassword> {
           backgroundColor: AppColor.whiteColor,
         ),
         body: GetBuilder<ForgetPasswordControllerImp>(
-          builder: (controller) => controller.statusRequest ==
-                  StatusRequest.loading
-              ? Center(
-                  child: Lottie.asset(
-                    AppImageAssets.loading,
-                    repeat: true,
-                    width: 200,
-                    height: 200,
-                  ),
-                )
-              : Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Form(
-                    key: controller.formState,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        SizedBox(
-                          height: 50,
-                        ),
-                        CustomBigText(
-                          text: "Forget Password",
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        CustomMediumText(
-                          text:
-                              "Enter your email address to receive verification code ",
-                        ),
-                        SizedBox(
-                          height: 80,
-                        ),
-                        Container(
-                          decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.06),
-                                spreadRadius: 0.1,
-                                blurRadius: 20,
-                                offset:
-                                    Offset(0, 2), // changes position of shadow
-                              ),
-                            ],
-                          ),
-                          child: CustomTextForm(
-                            hintText: "Email Address",
-                            svgPicture: 'assets/images/auth/email.svg',
-                            myController: controller.email,
-                            isNumber: false,
-                            validator: (val) {
-                              return validInput(val, 5, 100, "email");
-                            },
-                          ),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        CustomTextButtonAuth(
-                          text: 'Send Link',
-                          onPressed: () => controller.checkEmail(),
-                        ),
-                      ],
+          builder: (controller) => HandlingDataViewRequest(
+            statusRequest: controller.statusRequest,
+            widget: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Form(
+                key: controller.formState,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      height: 50,
                     ),
-                  ),
+                    CustomBigText(
+                      text: "Forget Password",
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    CustomMediumText(
+                      text:
+                          "Enter your email address to receive verification code ",
+                    ),
+                    SizedBox(
+                      height: 50,
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.06),
+                            spreadRadius: 0.1,
+                            blurRadius: 20,
+                            offset: Offset(0, 2), // changes position of shadow
+                          ),
+                        ],
+                      ),
+                      child: CustomTextForm(
+                        hintText: "Email Address",
+                        svgPicture: 'assets/images/auth/email.svg',
+                        myController: controller.email,
+                        isNumber: false,
+                        validator: (val) {
+                          return validInput(val, 5, 100, "email");
+                        },
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    CustomTextButtonAuth(
+                      text: 'Send Link',
+                      onPressed: () => controller.checkEmail(),
+                    ),
+                  ],
                 ),
+              ),
+            ),
+          ),
         ));
   }
 }

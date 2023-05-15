@@ -11,6 +11,9 @@ class SignUpData {
       "password": password,
       "phone": phone,
     });
-    return response.fold((l) => l, (r) => r);
+    return response.fold(
+      (l) => l,
+      (r) => r,
+    );
   }
 }

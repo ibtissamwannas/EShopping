@@ -2,13 +2,13 @@ import 'package:e_shopping/core/constants/router_name.dart';
 import 'package:e_shopping/data/datasource/remote/forgetpssword/reset_password.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-
 import '../../core/classes/status_request.dart';
 import '../../core/functions/handling_data.dart';
 
 abstract class ResetPasswordController extends GetxController {
-  resetPassword();
   goToSuccessResetPassword();
+  showPass();
+  showRePass();
 }
 
 class ResetPasswordControllerImp extends ResetPasswordController {
@@ -17,9 +17,21 @@ class ResetPasswordControllerImp extends ResetPasswordController {
   late TextEditingController rePassword;
   String? email;
   ResetPasswordData resetPasswordData = ResetPasswordData(Get.find());
-  StatusRequest? statusRequest;
+  StatusRequest statusRequest = StatusRequest.none;
+  bool isShowPass = true;
+  bool isShowRePass = true;
+
   @override
-  resetPassword() {}
+  showPass() {
+    isShowPass = isShowPass == true ? false : true;
+    update();
+  }
+
+  @override
+  showRePass() {
+    isShowRePass = isShowRePass == true ? false : true;
+    update();
+  }
 
   @override
   goToSuccessResetPassword() async {
@@ -33,7 +45,6 @@ class ResetPasswordControllerImp extends ResetPasswordController {
       } else {
         statusRequest = StatusRequest.loading;
         update();
-        await Future.delayed(Duration(seconds: 2));
         var response = await resetPasswordData.postData(email!, password.text);
         statusRequest = handlingData(response);
         if (StatusRequest.success == statusRequest) {

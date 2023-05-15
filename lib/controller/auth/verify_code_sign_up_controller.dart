@@ -14,7 +14,7 @@ class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
   String? email;
   VerifySignUpCodeData VerifyCodeData = VerifySignUpCodeData(Get.find());
   List data = [];
-  StatusRequest? statusRequest;
+  StatusRequest statusRequest = StatusRequest.none;
 
   @override
   checkCode(verifyCode) async {
@@ -23,8 +23,6 @@ class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
     if (StatusRequest.success == statusRequest) {
       if (response["status"] == "success") {
         // data.addAll(response["data"]);
-        print(email);
-        print(verifyCode);
         Get.toNamed(AppRoutes.successSignUp);
       } else {
         Get.defaultDialog(

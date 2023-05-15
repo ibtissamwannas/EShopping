@@ -12,7 +12,6 @@ import 'package:e_shopping/view/screens/auth/forgetpassword/verify_code.dart';
 import 'package:e_shopping/view/screens/auth/verify_code_sign_up.dart';
 import 'package:e_shopping/view/screens/language.dart';
 import 'package:e_shopping/view/screens/onboarding.dart';
-import 'package:e_shopping/view/test_view.dart';
 import 'package:get/get.dart';
 
 List<GetPage<dynamic>>? routes = [

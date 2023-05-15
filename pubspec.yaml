@@ -41,6 +41,7 @@ dependencies:
   flutter_otp_text_field: ^1.1.1
   dartz: ^0.10.1
   http: ^0.13.6
+  responsive_builder: ^0.6.4
   # DateTime
   # jiffy: ^5.0.0
   # intl: ^0.17.0
