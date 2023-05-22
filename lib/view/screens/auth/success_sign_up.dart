@@ -16,35 +16,33 @@ class SuccessSignUp extends StatelessWidget {
     SuccessSignUpControllerImp controller =
         Get.put(SuccessSignUpControllerImp());
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColor.whiteColor,
-        elevation: 0,
-      ),
-      body: Container(
-        padding: EdgeInsets.all(15),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Lottie.asset(AppImageAssets.success, height: 350),
-            CustomBigText(text: "successful Sign Up"),
-            SizedBox(
-              height: 5,
-            ),
-            CustomMediumText(
-              text: "Enjoy shopping !",
-              align: TextAlign.start,
-            ),
-            SizedBox(
-              height: 100,
-            ),
-            CustomTextButtonAuth(
-              text: 'go to login',
-              onPressed: () {
-                controller.goToLogin();
-              },
-            ),
-          ],
+      body: SafeArea(
+        child: Container(
+          padding: EdgeInsets.all(15),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Lottie.asset(AppImageAssets.success, height: 350),
+              CustomBigText(text: "successful Sign Up"),
+              SizedBox(
+                height: 5,
+              ),
+              CustomMediumText(
+                text: "Enjoy shopping !",
+                align: TextAlign.start,
+              ),
+              SizedBox(
+                height: 100,
+              ),
+              CustomTextButtonAuth(
+                text: 'go to login',
+                onPressed: () {
+                  controller.goToLogin();
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

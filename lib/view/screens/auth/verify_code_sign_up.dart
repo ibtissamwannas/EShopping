@@ -43,7 +43,7 @@ class _VerifyCodeSignUpState extends State<VerifyCodeSignUp> {
                 ),
                 CustomMediumText(
                   text:
-                      "Enter the code you have been received at ibtissamwannas21@gmail.com",
+                      "Enter the code you have been received at ${controller.email}",
                   align: TextAlign.center,
                 ),
                 SizedBox(

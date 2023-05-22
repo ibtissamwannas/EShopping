@@ -27,6 +27,9 @@ class _CustomTextFormPassState extends State<CustomTextFormPass> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      style: TextStyle(
+        color: Colors.black, // Set the desired input text color here
+      ),
       obscureText: widget.obsecureText,
       keyboardType: TextInputType.text,
       controller: widget.myController,

@@ -39,7 +39,7 @@ class SignUp extends StatelessWidget {
                         const SizedBox(
                           height: 10,
                         ),
-                        const CustomMediumText(text: "And start shopping !"),
+                        const CustomMediumText(text: "And start shopping!"),
                         const SizedBox(
                           height: 40,
                         ),

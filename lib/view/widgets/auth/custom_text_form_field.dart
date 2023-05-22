@@ -24,6 +24,9 @@ class _CustomTextFormState extends State<CustomTextForm> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      style: TextStyle(
+        color: Colors.black, // Set the desired input text color here
+      ),
       keyboardType: widget.isNumber
           ? TextInputType.numberWithOptions(decimal: true)
           : TextInputType.text,

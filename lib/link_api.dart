@@ -1,5 +1,6 @@
 class AppLinkApi {
-  static const String server = "http://localhost/ecommerce";
+  //http://localhost/ecommerce
+  static const String server = "http://ecommerce245.000webhostapp.com";
   static const String test = "${server}/test.php";
   // signup
   static const String signUp = "${server}/auth/signup.php";

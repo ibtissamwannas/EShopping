@@ -84,7 +84,7 @@ class HandlingDataViewRequest extends StatelessWidget {
                   height: 300,
                 ),
               )
-            : statusRequest == StatusRequest.serverFailure
+            : statusRequest == StatusRequest.serverException
                 ? Center(
                     child: LottieBuilder.asset(
                       AppImageAssets.error404,
