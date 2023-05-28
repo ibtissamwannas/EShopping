@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1024278498020",
+    "project_id": "eshopping-62a6e",
+    "storage_bucket": "eshopping-62a6e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1024278498020:android:d815fa07591f253f17baf1",
+        "android_client_info": {
+          "package_name": "com.example.e_shopping"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPFl55oMBz1czm6wH3kIKGYj7zmua40sM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

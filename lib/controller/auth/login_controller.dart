@@ -1,5 +1,7 @@
 import 'package:e_shopping/core/constants/router_name.dart';
+import 'package:e_shopping/core/services/my_services.dart';
 import 'package:e_shopping/data/datasource/remote/auth/login.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import '../../core/classes/status_request.dart';
@@ -20,6 +22,7 @@ class LoginControllerImp extends LoginController {
   LogInData LogInDataData = LogInData(Get.find());
   List data = [];
   StatusRequest statusRequest = StatusRequest.none;
+  MyServices myServices = Get.find();
 
   @override
   showPass() {
@@ -39,6 +42,15 @@ class LoginControllerImp extends LoginController {
       if (StatusRequest.success == statusRequest) {
         if (response["status"] == "success") {
           // data.addAll(response["data"]);
+          myServices.sharedPreferences
+              .setInt("id", response['data']["users_id"]);
+          myServices.sharedPreferences
+              .setString("username", response['data']["users_name"]);
+          myServices.sharedPreferences
+              .setString("email", response['data']["users_email"]);
+          myServices.sharedPreferences
+              .setString("phonenumber", response['data']["users_phone"]);
+          myServices.sharedPreferences.setString("step", "2");
           Get.offNamed(AppRoutes.home);
         } else {
           Get.defaultDialog(
@@ -64,6 +76,11 @@ class LoginControllerImp extends LoginController {
 
   @override
   void onInit() {
+    print("innnnnnn");
+    FirebaseMessaging.instance.getToken().then((value) {
+      print(value);
+    });
+
     email = TextEditingController();
     password = TextEditingController();
     super.onInit();

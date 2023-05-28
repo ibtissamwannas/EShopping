@@ -17,18 +17,27 @@ class Language extends GetView<LocaleController> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text("1".tr,style: Theme.of(context).textTheme.headline1,),
-            SizedBox(
-              height: Get.height*0.05,
+            Text(
+              "choose language",
+              style: Theme.of(context).textTheme.headline1,
             ),
-            CustomButtonLang(textbutton: "Ar",onPressed: (){
-              controller.changeLang("ar");
-              Get.toNamed(AppRoutes.onBoarding);
-            },),
-            CustomButtonLang(textbutton: "En",onPressed: (){
-              controller.changeLang("en");
-              Get.toNamed(AppRoutes.onBoarding);
-            },),
+            SizedBox(
+              height: Get.height * 0.05,
+            ),
+            CustomButtonLang(
+              textbutton: "Ar",
+              onPressed: () {
+                controller.changeLang("ar");
+                Get.toNamed(AppRoutes.onBoarding);
+              },
+            ),
+            CustomButtonLang(
+              textbutton: "En",
+              onPressed: () {
+                controller.changeLang("en");
+                Get.toNamed(AppRoutes.onBoarding);
+              },
+            ),
           ],
         ),
       ),
