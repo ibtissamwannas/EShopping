@@ -5,6 +5,7 @@ class AppLinkApi {
   //images
   static const String imagesLinkStatic = "http://localhost/ecommerce/upload";
   static const String categoriesImages = "$imagesLinkStatic/categories";
+  static const String itemsImages = "$imagesLinkStatic/items";
   static const String test = "${server}/test.php";
   // signup
   static const String signUp = "${server}/auth/signup.php";

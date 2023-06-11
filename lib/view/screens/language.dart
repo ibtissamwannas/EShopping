@@ -3,7 +3,7 @@ import 'package:e_shopping/core/localization/change_local.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../widgets/language/CustomeBottonLang.dart';
+import '../widgets/language/custom_button_lang.dart';
 
 class Language extends GetView<LocaleController> {
   const Language({Key? key}) : super(key: key);
