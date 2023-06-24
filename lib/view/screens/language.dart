@@ -2,7 +2,6 @@ import 'package:e_shopping/core/constants/router_name.dart';
 import 'package:e_shopping/core/localization/change_local.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../widgets/language/custom_button_lang.dart';
 
 class Language extends GetView<LocaleController> {
@@ -24,20 +23,25 @@ class Language extends GetView<LocaleController> {
             SizedBox(
               height: Get.height * 0.05,
             ),
-            CustomButtonLang(
-              textbutton: "Ar",
-              onPressed: () {
-                controller.changeLang("ar");
-                Get.toNamed(AppRoutes.onBoarding);
-              },
-            ),
-            CustomButtonLang(
-              textbutton: "En",
-              onPressed: () {
-                controller.changeLang("en");
-                Get.toNamed(AppRoutes.onBoarding);
-              },
-            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                CustomButtonLang(
+                  textbutton: "Ar",
+                  onPressed: () {
+                    controller.changeLang("ar");
+                    Get.toNamed(AppRoutes.onBoarding);
+                  },
+                ),
+                CustomButtonLang(
+                  textbutton: "En",
+                  onPressed: () {
+                    controller.changeLang("en");
+                    Get.toNamed(AppRoutes.onBoarding);
+                  },
+                ),
+              ],
+            )
           ],
         ),
       ),

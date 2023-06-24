@@ -12,7 +12,7 @@ class CategoriesGridView extends GetView<HomeControllerImp> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 30),
+      margin: EdgeInsets.symmetric(horizontal: 15),
       height: 190,
       width: double.infinity,
       child: GridView.builder(
@@ -22,9 +22,14 @@ class CategoriesGridView extends GetView<HomeControllerImp> {
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2, crossAxisSpacing: 10.0, mainAxisSpacing: 10.0),
         itemBuilder: (BuildContext context, int index) {
-          return Categories(
-            categoriesModel: CategoriesModel.fromJson(
-              controller.categories[index],
+          return InkWell(
+            onTap: () {
+              controller.goToSpecificItem(controller.categories, index);
+            },
+            child: Categories(
+              categoriesModel: CategoriesModel.fromJson(
+                controller.categories[index],
+              ),
             ),
           );
         },

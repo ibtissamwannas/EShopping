@@ -11,7 +11,7 @@ class CustomSearchBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         child: TextFormField(
           decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(vertical: 15),

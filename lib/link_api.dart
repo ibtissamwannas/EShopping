@@ -1,9 +1,10 @@
 class AppLinkApi {
   //http://localhost/ecommerce
   //http://ecommerce245.000webhostapp.com
-  static const String server = "http://localhost/ecommerce";
+  static const String server = "http://localhost:8888/ecommerce";
   //images
-  static const String imagesLinkStatic = "http://localhost/ecommerce/upload";
+  static const String imagesLinkStatic =
+      "http://localhost:8888/ecommerce/upload";
   static const String categoriesImages = "$imagesLinkStatic/categories";
   static const String itemsImages = "$imagesLinkStatic/items";
   static const String test = "${server}/test.php";

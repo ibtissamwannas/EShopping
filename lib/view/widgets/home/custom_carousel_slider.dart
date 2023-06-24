@@ -105,7 +105,7 @@ class CustomCarouselSlider extends GetView<HomeControllerImp> {
   }
 
   final List<String> imgList = [
-    "assets/images/discount1.jpg",
-    "assets/images/discount2.jpg",
+    "assets/images/sale3.png",
+    "assets/images/sale3.png",
   ];
 }

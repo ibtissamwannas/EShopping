@@ -17,7 +17,6 @@ class HandlingDataView extends StatelessWidget {
               AppImageAssets.loading,
               width: 300,
               height: 300,
-              repeat: true,
             ),
           )
         : statusRequest == StatusRequest.offlineFailuer

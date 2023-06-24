@@ -1,3 +1,4 @@
+import 'package:e_shopping/core/constants/router_name.dart';
 import 'package:e_shopping/core/services/my_services.dart';
 import 'package:e_shopping/data/datasource/remote/home_data.dart';
 import 'package:get/get.dart';
@@ -8,6 +9,7 @@ abstract class HomeController extends GetxController {
   initialData();
   getData();
   onPageChanged(int index);
+  goToSpecificItem(List categories, int selectedCat);
 }
 
 class HomeControllerImp extends HomeController {
@@ -47,6 +49,12 @@ class HomeControllerImp extends HomeController {
   }
 
   @override
+  goToSpecificItem(List categories, int selectedCat) {
+    Get.toNamed(AppRoutes.items,
+        arguments: {"categories": categories, "selectedCat": selectedCat});
+  }
+
+  @override
   onPageChanged(int index) {
     current_slider = index;
     update();
@@ -56,6 +64,7 @@ class HomeControllerImp extends HomeController {
   void onInit() {
     initialData();
     getData();
+    print(statusRequest);
     super.onInit();
   }
 }

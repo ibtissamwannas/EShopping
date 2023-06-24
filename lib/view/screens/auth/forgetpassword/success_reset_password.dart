@@ -1,4 +1,3 @@
-import 'package:e_shopping/controller/auth/success_sign_up_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';

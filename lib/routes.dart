@@ -1,7 +1,5 @@
 import 'package:e_shopping/core/constants/router_name.dart';
 import 'package:e_shopping/core/middleware/my_middleware.dart';
-import 'package:e_shopping/home.dart';
-import 'package:e_shopping/test.dart';
 import 'package:e_shopping/view/screens/auth/forgetpassword/forget_password.dart';
 import 'package:e_shopping/view/screens/auth/login.dart';
 import 'package:e_shopping/view/screens/auth/forgetpassword/reset_password.dart';
@@ -10,6 +8,8 @@ import 'package:e_shopping/view/screens/auth/forgetpassword/success_reset_passwo
 import 'package:e_shopping/view/screens/auth/success_sign_up.dart';
 import 'package:e_shopping/view/screens/auth/forgetpassword/verify_code.dart';
 import 'package:e_shopping/view/screens/auth/verify_code_sign_up.dart';
+import 'package:e_shopping/view/screens/home/items.dart';
+import 'package:e_shopping/view/screens/home_screen.dart';
 import 'package:e_shopping/view/screens/language.dart';
 import 'package:e_shopping/view/screens/onboarding.dart';
 import 'package:get/get.dart';
@@ -62,6 +62,10 @@ List<GetPage<dynamic>>? routes = [
   ),
   GetPage(
     name: AppRoutes.home,
-    page: () => Home(),
-  )
+    page: () => HomeScreen(),
+  ),
+  GetPage(
+    name: AppRoutes.items,
+    page: () => Items(),
+  ),
 ];

@@ -1,4 +1,3 @@
-import 'package:e_shopping/core/constants/colors.dart';
 import 'package:e_shopping/core/constants/image_assets.dart';
 import 'package:e_shopping/view/widgets/auth/custom_big_text.dart';
 import 'package:flutter/material.dart';

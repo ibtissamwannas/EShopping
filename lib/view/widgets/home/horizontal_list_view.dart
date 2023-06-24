@@ -13,7 +13,7 @@ class HorizontalListView extends GetView<HomeControllerImp> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 30),
+      margin: EdgeInsets.symmetric(horizontal: 15),
       height: 260,
       width: double.infinity,
       child: GridView.builder(
@@ -80,13 +80,41 @@ class ProductsForYou extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
-          child: Text(
-            "${itemsModel.itemName}",
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 18,
-              fontWeight: FontWeight.w600,
-            ),
+          child: Row(
+            children: [
+              Text(
+                "${itemsModel.itemPrice}\$",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              SizedBox(
+                width: 5,
+              ),
+              Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                    color: AppColor.whiteColor,
+                    border: Border.all(
+                      width: 0.6,
+                      color: AppColor.primaryColor,
+                    )),
+                child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: Text(
+                      "-${itemsModel.itemDiscount}%",
+                      style: TextStyle(
+                        color: AppColor.primaryColor,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
         SizedBox(
@@ -100,31 +128,11 @@ class ProductsForYou extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "${itemsModel.itemPrice}\$",
+                  "${itemsModel.itemName}",
                   style: TextStyle(
-                    color: Colors.black,
+                    color: AppColor.grey,
                     fontSize: 16,
                     fontWeight: FontWeight.w400,
-                  ),
-                ),
-                Container(
-                  height: 20,
-                  width: 100,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    color: Colors.grey.withOpacity(0.1),
-                  ),
-                  child: Center(
-                    child: Padding(
-                      padding: const EdgeInsets.all(1.0),
-                      child: Text(
-                        "${itemsModel.itemDiscount}%",
-                        style: TextStyle(
-                          color: AppColor.primaryColor,
-                          fontSize: 15,
-                        ),
-                      ),
-                    ),
                   ),
                 ),
               ],

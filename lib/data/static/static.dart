@@ -1,6 +1,5 @@
 import 'package:e_shopping/core/constants/image_assets.dart';
 import 'package:e_shopping/data/model/onboarding_model.dart';
-import 'package:flutter/material.dart';
 
 List<OnBoardingModel> onBoardingList = [
   OnBoardingModel(
