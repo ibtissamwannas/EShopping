@@ -2,11 +2,11 @@ import 'package:e_shopping/view/screens/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-abstract class HomeScreenController extends GetxController {
+abstract class bottomNavigationBarController extends GetxController {
   changePage(int currentpage);
 }
 
-class HomeScreenControllerImp extends HomeScreenController {
+class bottomNavigationBarControllerImp extends bottomNavigationBarController {
   int currentpage = 0;
   List<Widget> listPage = [
     const Home(),

@@ -21,17 +21,13 @@ class _CustomTextSignUpOrSignInState extends State<CustomTextSignUpOrSignIn> {
       children: [
         Text(
           widget.fistText,
-          style: Theme.of(context).textTheme.bodyText2,
+          style: Theme.of(context).textTheme.headlineSmall,
         ),
         GestureDetector(
           onTap: widget.onTap,
           child: Text(
             widget.secondText,
-            style: Theme.of(context).textTheme.headline1?.merge(
-                  TextStyle(
-                    fontSize: 17,
-                  ),
-                ),
+            style: Theme.of(context).textTheme.titleMedium,
           ),
         ),
       ],

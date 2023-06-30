@@ -53,6 +53,7 @@ class _CustomTextFormPassState extends State<CustomTextFormPass> {
             ),
           ),
         ),
+        hintStyle: Theme.of(context).textTheme.bodyMedium,
         hintText: widget.hintText,
         filled: true,
         fillColor: Colors.white,

@@ -19,7 +19,10 @@ class SuccessResetPassword extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: AppColor.whiteColor,
         centerTitle: true,
-        title: Text("Success", style: Theme.of(context).textTheme.headline6),
+        title: Text(
+          "Success",
+          style: Theme.of(context).textTheme.titleMedium,
+        ),
         elevation: 0,
       ),
       body: Container(

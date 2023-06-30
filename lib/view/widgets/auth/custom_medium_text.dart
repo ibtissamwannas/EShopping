@@ -16,7 +16,7 @@ class _CustomMediumTextState extends State<CustomMediumText> {
     return Text(
       widget.text,
       textAlign: widget.align,
-      style: Theme.of(context).textTheme.bodyText2,
+      style: Theme.of(context).textTheme.bodySmall,
     );
   }
 }

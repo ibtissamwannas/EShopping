@@ -9,7 +9,7 @@ import 'package:e_shopping/view/screens/auth/success_sign_up.dart';
 import 'package:e_shopping/view/screens/auth/forgetpassword/verify_code.dart';
 import 'package:e_shopping/view/screens/auth/verify_code_sign_up.dart';
 import 'package:e_shopping/view/screens/home/items.dart';
-import 'package:e_shopping/view/screens/home_screen.dart';
+import 'package:e_shopping/view/screens/bottom_navigation_bar.dart';
 import 'package:e_shopping/view/screens/language.dart';
 import 'package:e_shopping/view/screens/onboarding.dart';
 import 'package:get/get.dart';
@@ -62,7 +62,7 @@ List<GetPage<dynamic>>? routes = [
   ),
   GetPage(
     name: AppRoutes.home,
-    page: () => HomeScreen(),
+    page: () => bottomNavigationBar(),
   ),
   GetPage(
     name: AppRoutes.items,

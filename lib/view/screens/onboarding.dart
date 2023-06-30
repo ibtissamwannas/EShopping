@@ -15,7 +15,10 @@ class OnBoarding extends StatelessWidget {
       body: SafeArea(
           child: Column(
         children: [
-          Expanded(flex: 4, child: CustomSlider()),
+          Expanded(
+            flex: 4,
+            child: CustomSlider(),
+          ),
           Expanded(
             flex: 1,
             child: Column(

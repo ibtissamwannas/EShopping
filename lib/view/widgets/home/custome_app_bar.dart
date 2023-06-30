@@ -1,9 +1,9 @@
-import 'package:e_shopping/controller/home_screen_controller.dart';
+import 'package:e_shopping/controller/home/navigation_bar_controller.dart';
 import 'package:e_shopping/core/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class CustomeAppBar extends GetView<HomeScreenControllerImp> {
+class CustomeAppBar extends GetView<bottomNavigationBarControllerImp> {
   const CustomeAppBar({super.key});
 
   @override

@@ -1,44 +1,58 @@
+import 'package:e_shopping/data/datasource/remote/home/items_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
+import '../../core/classes/status_request.dart';
+import '../../core/functions/handling_data.dart';
 
 abstract class ItemsController extends GetxController {
   initialData();
-  changeCategoryIndex(val);
-  void scrollToTop();
+  changeCategoryIndex(val, catVal);
+  scrollToTop();
+  getItems(String categoryId);
 }
 
 class ItemsControllerImp extends ItemsController {
   List categories = [];
   int selectedCat = 0;
+  String? category;
   final ScrollController scrollController = ScrollController();
   bool showFloatingButton = false;
   double previousScrollPosition = 0.0;
   bool hideFloatingButton = false;
   bool isScrolling = false;
-
-  @override
-  void onInit() {
-    scrollController.addListener(_scrollListener);
-    initialData();
-    super.onInit();
-  }
-
-  @override
-  void onClose() {
-    scrollController.dispose();
-    super.onClose();
-  }
+  ItemsData itemsData = ItemsData(Get.find());
+  List data = [];
+  late StatusRequest statusRequest;
 
   @override
   initialData() {
     categories = Get.arguments["categories"];
     selectedCat = Get.arguments["selectedCat"];
+    category = Get.arguments["categoryId"];
   }
 
   @override
-  changeCategoryIndex(val) {
+  changeCategoryIndex(val, catVal) {
     selectedCat = val;
+    category = catVal;
+    data.clear();
+    getItems(category!);
+    update();
+  }
+
+  @override
+  getItems(categoryId) async {
+    statusRequest = StatusRequest.loading;
+    var response = await itemsData.getData(categoryId.toString());
+    statusRequest = handlingData(response);
+    if (StatusRequest.success == statusRequest) {
+      if (response["status"] == "success") {
+        data.addAll(response["data"]);
+      } else {
+        statusRequest = StatusRequest.failure;
+      }
+    }
     update();
   }
 
@@ -74,5 +88,19 @@ class ItemsControllerImp extends ItemsController {
         update();
       }
     }
+  }
+
+  @override
+  void onInit() {
+    scrollController.addListener(_scrollListener);
+    initialData();
+    getItems(category!);
+    super.onInit();
+  }
+
+  @override
+  void onClose() {
+    scrollController.dispose();
+    super.onClose();
   }
 }

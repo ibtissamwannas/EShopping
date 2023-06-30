@@ -23,8 +23,10 @@ class _ForgetPasswordState extends State<ForgetPassword> {
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: Text("Password Recovery",
-              style: Theme.of(context).textTheme.headline6),
+          title: Text(
+            "Password Recovery",
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
           leading: IconButton(
             onPressed: () {
               Get.back();

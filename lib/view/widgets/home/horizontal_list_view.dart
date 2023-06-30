@@ -1,9 +1,8 @@
-import 'package:e_shopping/controller/home_controller.dart';
+import 'package:e_shopping/controller/home/home_controller.dart';
 import 'package:e_shopping/data/model/items_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-
 import '../../../core/constants/colors.dart';
 import '../../../link_api.dart';
 
@@ -13,17 +12,12 @@ class HorizontalListView extends GetView<HomeControllerImp> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 15),
       height: 260,
       width: double.infinity,
-      child: GridView.builder(
+      child: ListView.builder(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         itemCount: controller.items.length,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 1,
-          mainAxisSpacing: 1.0,
-        ),
         itemBuilder: (BuildContext context, int index) {
           return ProductsForYou(
             itemsModel: ItemsModel.fromJson(
@@ -50,7 +44,7 @@ class ProductsForYou extends StatelessWidget {
           child: Stack(
             children: [
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(10.0),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(15),
                   child: Image.network(
@@ -84,11 +78,7 @@ class ProductsForYou extends StatelessWidget {
             children: [
               Text(
                 "${itemsModel.itemPrice}\$",
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: Theme.of(context).textTheme.titleMedium,
               ),
               SizedBox(
                 width: 5,
@@ -129,11 +119,7 @@ class ProductsForYou extends StatelessWidget {
               children: [
                 Text(
                   "${itemsModel.itemName}",
-                  style: TextStyle(
-                    color: AppColor.grey,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                  ),
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
               ],
             ),

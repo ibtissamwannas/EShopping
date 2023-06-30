@@ -1,6 +1,5 @@
 import 'package:e_shopping/controller/onboarding_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import '../../../core/constants/colors.dart';
 
@@ -15,9 +14,11 @@ class CustomTextButton extends GetView<OnBoardingControllerImp> {
         width: 500,
         height: 55,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10.0),
-            gradient: LinearGradient(
-                colors: [AppColor.primaryColor, AppColor.secondaryColor])),
+          borderRadius: BorderRadius.circular(10.0),
+          gradient: LinearGradient(
+            colors: [AppColor.primaryColor, AppColor.secondaryColor],
+          ),
+        ),
         child: ElevatedButton(
           style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all(Colors.transparent),
@@ -32,10 +33,7 @@ class CustomTextButton extends GetView<OnBoardingControllerImp> {
           },
           child: Text(
             "Next",
-            style: TextStyle(
-              color: AppColor.backGroundColor,
-              fontSize: 17,
-            ),
+            style: Theme.of(context).textTheme.labelSmall,
           ),
         ),
       ),

@@ -62,7 +62,7 @@ class _VerifyCodeState extends State<VerifyCode> {
                   numberOfFields: 5,
                   fieldWidth: 55,
                   borderRadius: BorderRadius.circular(10),
-                  borderColor: Color(0xFF512DA8),
+                  borderColor: AppColor.primaryColor,
                   //set to true to show as box or false to show as dash
                   showFieldAsBox: true,
                   //runs when a code is typed in

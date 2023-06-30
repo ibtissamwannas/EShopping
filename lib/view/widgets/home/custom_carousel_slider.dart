@@ -2,7 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../controller/home_controller.dart';
+import '../../../controller/home/home_controller.dart';
 import '../../../core/constants/colors.dart';
 
 class CustomCarouselSlider extends GetView<HomeControllerImp> {
@@ -33,13 +33,13 @@ class CustomCarouselSlider extends GetView<HomeControllerImp> {
               builder: (BuildContext context) {
                 return Padding(
                   padding: const EdgeInsets.only(
-                      left: 18, right: 18, top: 0, bottom: 0),
+                      left: 10, right: 10, top: 0, bottom: 0),
                   child: Stack(
                     children: <Widget>[
                       Container(
                         width: double.infinity,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(10),
                           color: Colors.white,
                           boxShadow: [
                             BoxShadow(
@@ -51,7 +51,7 @@ class CustomCarouselSlider extends GetView<HomeControllerImp> {
                           ],
                         ),
                         child: ClipRRect(
-                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
                             child: Image.asset(
                               "$i",
                               fit: BoxFit.cover,

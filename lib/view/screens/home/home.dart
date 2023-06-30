@@ -1,5 +1,4 @@
 import 'package:e_shopping/core/classes/handling_data_view.dart';
-import 'package:e_shopping/core/constants/colors.dart';
 import 'package:e_shopping/view/widgets/home/categories_grid_view.dart';
 import 'package:e_shopping/view/widgets/home/custom_carousel_slider.dart';
 import 'package:e_shopping/view/widgets/home/custom_search_bar.dart';
@@ -8,7 +7,7 @@ import 'package:e_shopping/view/widgets/home/horizontal_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import '../../../controller/home_controller.dart';
+import '../../../controller/home/home_controller.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -30,7 +29,7 @@ class _HomeState extends State<Home> {
             child: ListView(
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(15.0),
+                  padding: const EdgeInsets.all(10.0),
                   child: Row(
                     children: [
                       CircleAvatar(
@@ -44,20 +43,14 @@ class _HomeState extends State<Home> {
                         children: [
                           Text(
                             "Good Morning",
-                            style: TextStyle(
-                              color: AppColor.grey,
-                              fontSize: 15,
-                            ),
+                            style: Theme.of(context).textTheme.bodyMedium,
                           ),
                           SizedBox(
                             height: 5,
                           ),
                           Text(
                             "${controller.username}",
-                            style: TextStyle(
-                                color: AppColor.black,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w600),
+                            style: Theme.of(context).textTheme.displaySmall,
                           ),
                         ],
                       ),
@@ -75,6 +68,9 @@ class _HomeState extends State<Home> {
                       ),
                     ],
                   ),
+                ),
+                SizedBox(
+                  height: 10,
                 ),
                 CustomSearchBar(),
                 SizedBox(
