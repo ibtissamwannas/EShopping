@@ -3,6 +3,7 @@ import 'package:e_shopping/data/model/items_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../core/constants/colors.dart';
+import '../../../core/functions/translate_db_data.dart';
 import '../../../link_api.dart';
 
 class CustomeListItems extends StatelessWidget {
@@ -39,7 +40,7 @@ class CustomeListItems extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 5),
                 child: Text(
-                  "${itemsModel.itemName}",
+                  "${translateDBData(itemsModel.itemNameAr ?? "", itemsModel.itemName ?? "")}",
                   style: Theme.of(context).textTheme.displaySmall,
                 ),
               ),

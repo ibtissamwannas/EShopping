@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../controller/home/items_controller.dart';
 import '../../../core/constants/colors.dart';
+import '../../../core/functions/translate_db_data.dart';
 import '../../../data/model/categories_model.dart';
 
 class HorizontalItemsList extends GetView<ItemsControllerImp> {
@@ -10,7 +11,7 @@ class HorizontalItemsList extends GetView<ItemsControllerImp> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 39,
+      height: 45,
       width: double.infinity,
       child: ListView.separated(
         shrinkWrap: true,
@@ -66,7 +67,7 @@ class Categories extends StatelessWidget {
                 ),
                 padding: EdgeInsets.all(10),
                 child: Text(
-                  "${categoriesModel.categoryName}",
+                  "${translateDBData(categoriesModel.categoryNameAr ?? "", categoriesModel.categoryName ?? "")}",
                   style: TextStyle(
                     fontSize: 15,
                     color: controller.selectedCat == i

@@ -28,7 +28,7 @@ class _CustomTextFormPassState extends State<CustomTextFormPass> {
   Widget build(BuildContext context) {
     return TextFormField(
       style: TextStyle(
-        color: Colors.black, // Set the desired input text color here
+        color: Colors.black,
       ),
       obscureText: widget.obsecureText,
       keyboardType: TextInputType.text,
@@ -39,8 +39,6 @@ class _CustomTextFormPassState extends State<CustomTextFormPass> {
           padding: const EdgeInsets.all(12.0),
           child: SvgPicture.asset(
             widget.svgPicture,
-            // width: 24,
-            // height: 24,
           ),
         ),
         suffixIcon: InkWell(

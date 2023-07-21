@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import '../../../core/constants/colors.dart';
+import '../../../core/functions/translate_db_data.dart';
 import '../../../link_api.dart';
 
 class CategoriesGridView extends GetView<HomeControllerImp> {
@@ -78,7 +79,7 @@ class Categories extends GetView<HomeControllerImp> {
             height: 5,
           ),
           Text(
-            "${categoriesModel.categoryName}",
+            "${translateDBData(categoriesModel.categoryNameAr??"",categoriesModel.categoryName??"")}",
             style: Theme.of(context).textTheme.bodyMedium,
           )
         ],
