@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import '../../core/classes/status_request.dart';
 import '../../core/functions/handling_data.dart';
+import '../../view/widgets/snackbars/snackbar.dart';
 
 abstract class LoginController extends GetxController {
   login();
@@ -37,7 +38,6 @@ class LoginControllerImp extends LoginController {
       statusRequest = StatusRequest.loading;
       update();
       var response = await LogInDataData.postData(email.text, password.text);
-      print(response);
       statusRequest = handlingData(response);
       if (StatusRequest.success == statusRequest) {
         if (response["status"] == "success") {
@@ -53,9 +53,10 @@ class LoginControllerImp extends LoginController {
           myServices.sharedPreferences.setString("step", "2");
           Get.offNamed(AppRoutes.home);
         } else {
-          Get.defaultDialog(
-            title: "warning",
-            middleText: "${response["message"]}",
+          Get.showSnackbar(
+            SnackBarUI.ErrorSnackbar(
+              message: 'Invalid email or password',
+            ),
           );
           statusRequest = StatusRequest.failure;
         }
@@ -76,11 +77,9 @@ class LoginControllerImp extends LoginController {
 
   @override
   void onInit() {
-    print("innnnnnn");
     FirebaseMessaging.instance.getToken().then((value) {
       print(value);
     });
-
     email = TextEditingController();
     password = TextEditingController();
     super.onInit();

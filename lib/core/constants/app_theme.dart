@@ -1,52 +1,64 @@
 import 'package:flutter/material.dart';
-
 import 'colors.dart';
 
 ThemeData themeEnglish = ThemeData(
-  textTheme: TextTheme(
-    displayMedium: TextStyle(
-      fontWeight: FontWeight.bold,
-      fontSize: 24,
-      color: Colors.black,
-    ),
-    displaySmall: TextStyle(
-      fontWeight: FontWeight.bold,
-      fontSize: 16,
-      color: Colors.black,
-    ),
-    bodyMedium: TextStyle(
-      color: AppColor.textGrey,
-      fontSize: 15,
-      fontWeight: FontWeight.w500,
-    ),
-    bodySmall: TextStyle(
-      color: AppColor.textGrey,
-      fontSize: 14,
+    textTheme: TextTheme(
+  titleLarge: TextStyle(
+      fontSize: 15.0,
+      fontWeight: FontWeight.w700,
+      color: AppColor.black,
+      height: 1.3),
+  headlineSmall: TextStyle(
+      fontSize: 16.0,
+      fontWeight: FontWeight.w700,
+      color: AppColor.black,
+      height: 1.3),
+  headlineMedium: TextStyle(
+      fontSize: 18.0,
+      fontWeight: FontWeight.w400,
+      color: AppColor.black,
+      height: 1.3),
+  displaySmall: TextStyle(
+      fontSize: 20.0,
+      fontWeight: FontWeight.w700,
+      color: AppColor.black,
+      height: 1.3),
+  displayMedium: TextStyle(
+      fontSize: 22.0,
+      fontWeight: FontWeight.w700,
+      color: AppColor.black,
+      height: 1.4),
+  displayLarge: TextStyle(
+      fontSize: 24.0,
       fontWeight: FontWeight.w300,
-    ),
-    headlineSmall: TextStyle(
-      fontSize: 17,
-      color: AppColor.textGrey,
-    ),
-    titleSmall: TextStyle(
-      color: AppColor.textGrey,
-      fontSize: 15,
-    ),
-    titleMedium: TextStyle(
-      fontSize: 18,
-      color: Colors.black,
-    ),
-    titleLarge: TextStyle(
-      fontSize: 19,
-      color: Colors.black,
+      color: AppColor.black,
+      height: 1.4),
+  titleSmall: TextStyle(
+      fontSize: 15.0,
       fontWeight: FontWeight.w600,
-    ),
-    labelSmall: TextStyle(
-      fontSize: 17,
-      color: Colors.white,
-    ),
-  ),
-);
+      color: AppColor.black,
+      height: 1.2),
+  titleMedium: TextStyle(
+      fontSize: 13.0,
+      fontWeight: FontWeight.w400,
+      color: AppColor.black,
+      height: 1.2),
+  bodyMedium: TextStyle(
+      fontSize: 13.0,
+      fontWeight: FontWeight.w600,
+      color: AppColor.black,
+      height: 1.2),
+  bodyLarge: TextStyle(
+      fontSize: 12.0,
+      fontWeight: FontWeight.w400,
+      color: AppColor.black,
+      height: 1.2),
+  bodySmall: TextStyle(
+      fontSize: 12.0,
+      fontWeight: FontWeight.w300,
+      color: AppColor.textGrey,
+      height: 1.2),
+));
 
 // ThemeData themeArabic = ThemeData(
 //   textTheme: TextTheme(

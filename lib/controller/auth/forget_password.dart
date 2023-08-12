@@ -5,6 +5,7 @@ import '../../core/classes/status_request.dart';
 import '../../core/constants/router_name.dart';
 import '../../core/functions/handling_data.dart';
 import '../../data/datasource/remote/forgetpssword/check_email.dart';
+import '../../view/widgets/snackbars/snackbar.dart';
 
 abstract class ForgetPasswordController extends GetxController {
   checkEmail();
@@ -24,15 +25,15 @@ class ForgetPasswordControllerImp extends ForgetPasswordController {
       statusRequest = StatusRequest.loading;
       update();
       var response = await checkEmailData.postData(email.text);
-      print(response);
       statusRequest = handlingData(response);
       if (StatusRequest.success == statusRequest) {
         if (response["status"] == "success") {
           Get.offNamed(AppRoutes.verifyCode, arguments: {"email": email.text});
         } else {
-          Get.defaultDialog(
-            title: "warning",
-            middleText: "${response["message"]}",
+          Get.showSnackbar(
+            SnackBarUI.ErrorSnackbar(
+              message: 'Email not found',
+            ),
           );
           statusRequest = StatusRequest.failure;
         }

@@ -1,5 +1,4 @@
 import 'package:e_shopping/core/constants/router_name.dart';
-import 'package:e_shopping/core/middleware/my_middleware.dart';
 import 'package:e_shopping/view/screens/auth/forgetpassword/forget_password.dart';
 import 'package:e_shopping/view/screens/auth/login.dart';
 import 'package:e_shopping/view/screens/auth/forgetpassword/reset_password.dart';
@@ -12,17 +11,19 @@ import 'package:e_shopping/view/screens/home/items.dart';
 import 'package:e_shopping/view/screens/bottom_navigation_bar.dart';
 import 'package:e_shopping/view/screens/language.dart';
 import 'package:e_shopping/view/screens/onboarding.dart';
+import 'package:e_shopping/view/screens/product/product_details.dart';
 import 'package:get/get.dart';
+import 'core/middleware/my_middleware.dart';
 
 List<GetPage<dynamic>>? routes = [
-  // GetPage(
-  //   name: "/",
-  //   page: () => TestView(),
-  // ),
   GetPage(
     name: "/",
     page: () => Language(),
     middlewares: [MyMiddleware()],
+  ),
+  GetPage(
+    name: "/productDetails",
+    page: () => ProductDetials(),
   ),
   GetPage(
     name: AppRoutes.login,

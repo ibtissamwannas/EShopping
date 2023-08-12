@@ -14,7 +14,7 @@ class HorizontalListView extends GetView<HomeControllerImp> {
     return Container(
       height: 260,
       width: double.infinity,
-      child: ListView.builder(
+      child: ListView.separated(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         itemCount: controller.items.length,
@@ -23,6 +23,11 @@ class HorizontalListView extends GetView<HomeControllerImp> {
             itemsModel: ItemsModel.fromJson(
               controller.items[index],
             ),
+          );
+        },
+        separatorBuilder: (BuildContext context, int index) {
+          return SizedBox(
+            width: 20,
           );
         },
       ),
@@ -40,6 +45,8 @@ class ProductsForYou extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10), color: Colors.white),
           width: 230,
           child: Stack(
             children: [
@@ -51,7 +58,7 @@ class ProductsForYou extends StatelessWidget {
                     "${AppLinkApi.itemsImages}/${itemsModel.itemImage}",
                     width: 230,
                     height: 190,
-                    fit: BoxFit.fill,
+                    fit: BoxFit.contain,
                   ),
                 ),
               ),
@@ -124,7 +131,7 @@ class ProductsForYou extends StatelessWidget {
               ],
             ),
           ),
-        )
+        ),
       ],
     );
   }

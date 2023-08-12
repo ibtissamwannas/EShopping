@@ -1,4 +1,6 @@
+import 'package:e_shopping/core/constants/router_name.dart';
 import 'package:e_shopping/data/datasource/remote/home/items_data.dart';
+import 'package:e_shopping/data/model/items_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
@@ -10,6 +12,7 @@ abstract class ItemsController extends GetxController {
   changeCategoryIndex(val, catVal);
   scrollToTop();
   getItems(String categoryId);
+  goToProductDetails(ItemsModel itemsModel);
 }
 
 class ItemsControllerImp extends ItemsController {
@@ -88,6 +91,12 @@ class ItemsControllerImp extends ItemsController {
         update();
       }
     }
+  }
+
+  @override
+  goToProductDetails(itemsModel) {
+    Get.toNamed(AppRoutes.productDetails,
+        arguments: {"itemsModel": itemsModel});
   }
 
   @override
