@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../../core/constants/colors.dart';
+
 class CustomSearchBar extends StatelessWidget {
   final void Function()? onTap;
   const CustomSearchBar({super.key, this.onTap});
@@ -31,7 +33,11 @@ class CustomSearchBar extends StatelessWidget {
               fit: BoxFit.scaleDown,
             ),
             hintText: 'Search Keywords',
-            hintStyle: Theme.of(context).textTheme.bodyMedium,
+            hintStyle: Theme.of(context).textTheme.bodyMedium?.merge(
+                  TextStyle(
+                    color: AppColor.textGrey,
+                  ),
+                ),
             filled: true,
             fillColor: Colors.grey[120],
           ),

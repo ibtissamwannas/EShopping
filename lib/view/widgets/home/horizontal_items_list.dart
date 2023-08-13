@@ -67,14 +67,14 @@ class Categories extends StatelessWidget {
                 ),
                 padding: EdgeInsets.all(10),
                 child: Text(
-                  "${translateDBData(categoriesModel.categoryNameAr ?? "", categoriesModel.categoryName ?? "")}",
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: controller.selectedCat == i
-                        ? AppColor.primaryColor
-                        : AppColor.textGrey,
-                  ),
-                ),
+                    "${translateDBData(categoriesModel.categoryNameAr ?? "", categoriesModel.categoryName ?? "")}",
+                    style: Theme.of(context).textTheme.bodyLarge?.merge(
+                          TextStyle(
+                            color: controller.selectedCat == i
+                                ? AppColor.primaryColor
+                                : AppColor.textGrey,
+                          ),
+                        )),
               ),
             );
           },

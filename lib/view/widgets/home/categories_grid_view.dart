@@ -79,8 +79,8 @@ class Categories extends GetView<HomeControllerImp> {
             height: 5,
           ),
           Text(
-            "${translateDBData(categoriesModel.categoryNameAr??"",categoriesModel.categoryName??"")}",
-            style: Theme.of(context).textTheme.bodyMedium,
+            "${translateDBData(categoriesModel.categoryNameAr ?? "", categoriesModel.categoryName ?? "")}",
+            style: Theme.of(context).textTheme.bodyLarge,
           )
         ],
       ),

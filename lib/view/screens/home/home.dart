@@ -1,4 +1,5 @@
 import 'package:e_shopping/core/classes/handling_data_view.dart';
+import 'package:e_shopping/core/constants/colors.dart';
 import 'package:e_shopping/view/widgets/home/categories_grid_view.dart';
 import 'package:e_shopping/view/widgets/home/custom_carousel_slider.dart';
 import 'package:e_shopping/view/widgets/home/custom_search_bar.dart';
@@ -43,14 +44,19 @@ class _HomeState extends State<Home> {
                         children: [
                           Text(
                             "Good Morning",
-                            style: Theme.of(context).textTheme.bodyMedium,
+                            style: Theme.of(context).textTheme.headlineSmall,
                           ),
                           SizedBox(
                             height: 5,
                           ),
                           Text(
                             "${controller.username}",
-                            style: Theme.of(context).textTheme.displaySmall,
+                            style:
+                                Theme.of(context).textTheme.bodyMedium?.merge(
+                                      TextStyle(
+                                        color: AppColor.textGrey,
+                                      ),
+                                    ),
                           ),
                         ],
                       ),

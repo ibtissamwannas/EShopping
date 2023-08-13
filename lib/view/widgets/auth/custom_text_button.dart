@@ -43,7 +43,7 @@ class _CustomTextButtonAuthState extends State<CustomTextButtonAuth> {
         onPressed: widget.onPressed,
         child: Text(
           widget.text,
-          style: Theme.of(context).textTheme.labelSmall,
+          style: Theme.of(context).textTheme.labelLarge,
         ),
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:e_shopping/core/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomTitle extends StatelessWidget {
@@ -13,11 +14,15 @@ class CustomTitle extends StatelessWidget {
         children: [
           Text(
             title,
-            style: Theme.of(context).textTheme.titleLarge,
+            style: Theme.of(context).textTheme.displaySmall,
           ),
           Text(
             "See all",
-            style: Theme.of(context).textTheme.bodySmall,
+            style: Theme.of(context).textTheme.bodyMedium?.merge(
+                  TextStyle(
+                    color: AppColor.textGrey,
+                  ),
+                ),
           ),
         ],
       ),

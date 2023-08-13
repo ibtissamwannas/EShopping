@@ -1,9 +1,9 @@
 import 'package:e_shopping/controller/home/items_controller.dart';
-import 'package:e_shopping/core/classes/handling_data_view.dart';
-import 'package:e_shopping/data/model/items_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../core/classes/handling_data_view.dart';
 import '../../../core/constants/colors.dart';
+import '../../../data/model/items_model.dart';
 import '../../widgets/home/custom_search_bar.dart';
 import '../../widgets/home/custome_list_items.dart';
 import '../../widgets/home/horizontal_items_list.dart';

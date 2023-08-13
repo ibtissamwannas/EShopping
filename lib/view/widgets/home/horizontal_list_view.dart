@@ -126,7 +126,7 @@ class ProductsForYou extends StatelessWidget {
               children: [
                 Text(
                   "${itemsModel.itemName}",
-                  style: Theme.of(context).textTheme.bodyMedium,
+                  style: Theme.of(context).textTheme.bodyLarge,
                 ),
               ],
             ),

@@ -53,7 +53,7 @@ class CustomeListItems extends GetView<ItemsControllerImp> {
                   padding: const EdgeInsets.symmetric(horizontal: 5),
                   child: Text(
                     "${translateDBData(itemsModel.itemNameAr ?? "", itemsModel.itemName ?? "")}",
-                    style: Theme.of(context).textTheme.displaySmall,
+                    style: Theme.of(context).textTheme.titleLarge,
                   ),
                 ),
                 SizedBox(

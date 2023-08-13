@@ -49,7 +49,7 @@ ThemeData themeEnglish = ThemeData(
       color: AppColor.black,
       height: 1.2),
   bodyLarge: TextStyle(
-      fontSize: 12.0,
+      fontSize: 14.0,
       fontWeight: FontWeight.w400,
       color: AppColor.black,
       height: 1.2),

@@ -67,10 +67,7 @@ class ProductDetials extends StatelessWidget {
                       children: [
                         Text(
                           "${controller.itemsModel.itemPrice}\$",
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.black,
-                          ),
+                          style: Theme.of(context).textTheme.displayMedium,
                         ),
                         SvgPicture.asset(
                           "assets/icons/heart.svg",
@@ -90,7 +87,7 @@ class ProductDetials extends StatelessWidget {
                       children: [
                         Text(
                           "${translateDBData(controller.itemsModel.itemNameAr ?? "", controller.itemsModel.itemName ?? "")}",
-                          style: Theme.of(context).textTheme.displaySmall,
+                          style: Theme.of(context).textTheme.headlineMedium,
                         ),
                       ],
                     ),
