@@ -6,6 +6,7 @@ import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import '../../core/classes/status_request.dart';
 import '../../core/functions/handling_data.dart';
+import '../../core/services/my_services.dart';
 
 abstract class ItemsController extends GetxController {
   initialData();
@@ -27,6 +28,7 @@ class ItemsControllerImp extends ItemsController {
   ItemsData itemsData = ItemsData(Get.find());
   List data = [];
   late StatusRequest statusRequest;
+  MyServices myServices = Get.find();
 
   @override
   initialData() {
@@ -47,7 +49,10 @@ class ItemsControllerImp extends ItemsController {
   @override
   getItems(categoryId) async {
     statusRequest = StatusRequest.loading;
-    var response = await itemsData.getData(categoryId.toString());
+    var response = await itemsData.getData(
+      categoryId.toString(),
+      myServices.sharedPreferences.getInt("id").toString(),
+    );
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response["status"] == "success") {

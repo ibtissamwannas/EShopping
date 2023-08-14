@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_shopping/controller/home/items_controller.dart';
 import 'package:e_shopping/data/model/items_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import '../../../core/constants/colors.dart';
 import '../../../core/functions/translate_db_data.dart';
@@ -11,23 +10,26 @@ import '../../../link_api.dart';
 class CustomeListItems extends GetView<ItemsControllerImp> {
   final ItemsModel itemsModel;
 
-  const CustomeListItems({super.key, required this.itemsModel});
+  const CustomeListItems({
+    super.key,
+    required this.itemsModel,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        controller.goToProductDetails(itemsModel);
-      },
-      child: Stack(
-        children: [
-          Container(
-            margin: EdgeInsets.all(10),
-            padding: EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(15),
-            ),
+    return Stack(
+      children: [
+        Container(
+          margin: EdgeInsets.all(10),
+          padding: EdgeInsets.all(10),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(15),
+          ),
+          child: GestureDetector(
+            onTap: () {
+              controller.goToProductDetails(itemsModel);
+            },
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -122,19 +124,28 @@ class CustomeListItems extends GetView<ItemsControllerImp> {
               ],
             ),
           ),
-          Align(
+        ),
+        GestureDetector(
+          onTap: () {},
+          child: Align(
             alignment: Alignment.topRight,
             child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: SvgPicture.asset(
-                "assets/icons/heart.svg",
-                height: 25,
-                width: 25,
-              ),
-            ),
-          )
-        ],
-      ),
+                padding: const EdgeInsets.all(20.0),
+                child: Icon(
+                  itemsModel.favorite == 1
+                      ? Icons.favorite
+                      : Icons.favorite_border_outlined,
+                  color: Colors.red,
+                )
+                //  SvgPicture.asset(
+                //   "assets/icons/heart.svg",
+                //   height: 25,
+                //   width: 25,
+                // ),
+                ),
+          ),
+        )
+      ],
     );
   }
 }
