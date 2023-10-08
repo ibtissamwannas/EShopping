@@ -53,6 +53,7 @@ class ItemsControllerImp extends ItemsController {
       categoryId.toString(),
       myServices.sharedPreferences.getInt("id").toString(),
     );
+    print(response);
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response["status"] == "success") {

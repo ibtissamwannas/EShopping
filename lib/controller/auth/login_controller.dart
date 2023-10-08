@@ -38,20 +38,26 @@ class LoginControllerImp extends LoginController {
       statusRequest = StatusRequest.loading;
       update();
       var response = await LogInDataData.postData(email.text, password.text);
+
       statusRequest = handlingData(response);
       if (StatusRequest.success == statusRequest) {
         if (response["status"] == "success") {
           // data.addAll(response["data"]);
-          myServices.sharedPreferences
-              .setInt("id", response['data']["users_id"]);
-          myServices.sharedPreferences
-              .setString("username", response['data']["users_name"]);
-          myServices.sharedPreferences
-              .setString("email", response['data']["users_email"]);
-          myServices.sharedPreferences
-              .setString("phonenumber", response['data']["users_phone"]);
-          myServices.sharedPreferences.setString("step", "2");
-          Get.offNamed(AppRoutes.home);
+          if (response["data"]["users_approve"] == 1) {
+            myServices.sharedPreferences
+                .setInt("id", response['data']["users_id"]);
+            myServices.sharedPreferences
+                .setString("username", response['data']["users_name"]);
+            myServices.sharedPreferences
+                .setString("email", response['data']["users_email"]);
+            myServices.sharedPreferences
+                .setString("phonenumber", response['data']["users_phone"]);
+            myServices.sharedPreferences.setString("step", "2");
+            Get.offNamed(AppRoutes.home);
+          } else {
+            Get.offNamed(AppRoutes.verifyCodeSignUp,
+                arguments: {"email": email.text});
+          }
         } else {
           Get.showSnackbar(
             SnackBarUI.ErrorSnackbar(

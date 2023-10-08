@@ -65,6 +65,23 @@ class _VerifyCodeSignUpState extends State<VerifyCodeSignUp> {
                     controller.checkCode(verificationCode);
                   }, // end onSubmit
                 ),
+                SizedBox(
+                  height: 50,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    controller.resend();
+                  },
+                  child: Text(
+                    "Resend Code",
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                          color: Colors.red,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 17,
+                        ),
+                  ),
+                )
               ],
             ),
           ),

@@ -33,7 +33,7 @@ class CustomTextButton extends GetView<OnBoardingControllerImp> {
           },
           child: Text(
             "Next",
-            style: Theme.of(context).textTheme.labelSmall,
+            style: Theme.of(context).textTheme.bodyMedium,
           ),
         ),
       ),

@@ -1,3 +1,4 @@
+import 'package:e_shopping/controller/favorite_in_controller.dart';
 import 'package:e_shopping/controller/home/items_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -14,6 +15,7 @@ class Items extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(ItemsControllerImp());
+    FavoriteControllerImp favController = Get.put(FavoriteControllerImp());
     return GetBuilder<ItemsControllerImp>(
       builder: (controller) {
         return Scaffold(
@@ -55,6 +57,9 @@ class Items extends StatelessWidget {
                               childAspectRatio: 0.81,
                             ),
                             itemBuilder: (context, index) {
+                              favController.isFavorite[controller.data[index]
+                                      ["item_id"]] =
+                                  controller.data[index]['favorite'];
                               return CustomeListItems(
                                   itemsModel: ItemsModel.fromJson(
                                 controller.data[index],

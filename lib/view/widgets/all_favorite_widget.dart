@@ -1,24 +1,23 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:e_shopping/controller/favorite_in_controller.dart';
-import 'package:e_shopping/controller/home/items_controller.dart';
-import 'package:e_shopping/data/model/items_model.dart';
+import 'package:e_shopping/data/model/favorite_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../core/constants/colors.dart';
 import '../../../core/functions/translate_db_data.dart';
 import '../../../link_api.dart';
+import '../../controller/all_favorite_controller.dart';
 
-class CustomeListItems extends GetView<ItemsControllerImp> {
-  final ItemsModel itemsModel;
+class CustomeListItemsFavorite extends GetView<allFavoriteControllerImp> {
+  final FavoriteModel itemsModel;
 
-  const CustomeListItems({
+  const CustomeListItemsFavorite({
     super.key,
     required this.itemsModel,
   });
 
   @override
   Widget build(BuildContext context) {
-    Get.put(FavoriteControllerImp());
+    Get.put(allFavoriteControllerImp());
     return Stack(
       children: [
         Container(
@@ -30,7 +29,7 @@ class CustomeListItems extends GetView<ItemsControllerImp> {
           ),
           child: GestureDetector(
             onTap: () {
-              controller.goToProductDetails(itemsModel);
+              // controller.goToProductDetails(itemsModel);
             },
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -127,33 +126,19 @@ class CustomeListItems extends GetView<ItemsControllerImp> {
             ),
           ),
         ),
-        GetBuilder<FavoriteControllerImp>(builder: (controller) {
+        GetBuilder<allFavoriteControllerImp>(builder: (controller) {
           return GestureDetector(
             onTap: () {
-              if (controller.isFavorite[itemsModel.itemId] == 1) {
-                controller.setFavorite(itemsModel.itemId, 0);
-                controller.removeFavorite(itemsModel.itemId);
-              } else {
-                controller.setFavorite(itemsModel.itemId, 1);
-                controller.addFavorite(itemsModel.itemId);
-              }
+              controller.removeFavorite(itemsModel.itemId);
             },
             child: Align(
               alignment: Alignment.topRight,
               child: Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: Icon(
-                    controller.isFavorite[itemsModel.itemId] == 1
-                        ? Icons.favorite
-                        : Icons.favorite_border_outlined,
+                    Icons.favorite,
                     color: Colors.red,
-                  )
-                  //  SvgPicture.asset(
-                  //   "assets/icons/heart.svg",
-                  //   height: 25,
-                  //   width: 25,
-                  // ),
-                  ),
+                  )),
             ),
           );
         })

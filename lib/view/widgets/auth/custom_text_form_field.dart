@@ -42,7 +42,7 @@ class _CustomTextFormState extends State<CustomTextForm> {
           ),
         ),
         hintText: widget.hintText,
-        hintStyle: Theme.of(context).textTheme.bodyMedium,
+        hintStyle: Theme.of(context).textTheme.labelMedium,
         filled: true,
         fillColor: Colors.white,
         border: OutlineInputBorder(

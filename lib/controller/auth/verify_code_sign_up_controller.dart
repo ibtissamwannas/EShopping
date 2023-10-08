@@ -7,6 +7,7 @@ import '../../core/functions/handling_data.dart';
 
 abstract class VerifyCodeSignUpController extends GetxController {
   checkCode(verifyCode);
+  resend();
 }
 
 class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
@@ -24,6 +25,27 @@ class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
       if (response["status"] == "success") {
         // data.addAll(response["data"]);
         Get.toNamed(AppRoutes.successSignUp);
+      } else {
+        Get.defaultDialog(
+          title: "warning",
+          middleText: "wrong code",
+        );
+        statusRequest = StatusRequest.failure;
+      }
+    }
+    update();
+  }
+
+  @override
+  void resend() async {
+    var response = await VerifyCodeData.resentCode(email!);
+    statusRequest = handlingData(response);
+    if (StatusRequest.success == statusRequest) {
+      if (response["status"] == "success") {
+        Get.defaultDialog(
+          title: "success",
+          middleText: "code was send",
+        );
       } else {
         Get.defaultDialog(
           title: "warning",

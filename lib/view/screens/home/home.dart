@@ -1,5 +1,6 @@
 import 'package:e_shopping/core/classes/handling_data_view.dart';
 import 'package:e_shopping/core/constants/colors.dart';
+import 'package:e_shopping/core/constants/router_name.dart';
 import 'package:e_shopping/view/widgets/home/categories_grid_view.dart';
 import 'package:e_shopping/view/widgets/home/custom_carousel_slider.dart';
 import 'package:e_shopping/view/widgets/home/custom_search_bar.dart';
@@ -68,6 +69,15 @@ class _HomeState extends State<Home> {
                               "assets/icons/notifications.svg",
                               width: 35,
                               height: 35,
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                Get.toNamed(AppRoutes.favorite);
+                              },
+                              child: Icon(
+                                Icons.favorite_border_rounded,
+                                size: 35,
+                              ),
                             ),
                           ],
                         ),

@@ -25,7 +25,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
           centerTitle: true,
           title: Text(
             "Password Recovery",
-            style: Theme.of(context).textTheme.titleMedium,
+            style: Theme.of(context).textTheme.headlineMedium,
           ),
           leading: IconButton(
             onPressed: () {
