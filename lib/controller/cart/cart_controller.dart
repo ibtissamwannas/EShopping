@@ -1,32 +1,25 @@
-import 'package:e_shopping/data/model/items_model.dart';
-import 'package:flutter/material.dart';
+import 'package:e_shopping/data/model/cart_model.dart';
 import 'package:get/get.dart';
 
-import '../core/classes/status_request.dart';
-import '../core/functions/handling_data.dart';
-import '../core/services/my_services.dart';
-import '../data/datasource/remote/cart/add_cart_data.dart';
-import '../data/model/cart_model.dart';
-import '../view/widgets/snackbars/snackbar.dart';
+import '../../core/classes/status_request.dart';
+import '../../core/functions/handling_data.dart';
+import '../../core/services/my_services.dart';
+import '../../data/datasource/remote/cart/add_cart_data.dart';
+import '../../view/widgets/snackbars/snackbar.dart';
 
-abstract class ProductDetails extends GetxController {
-  initData();
-  setSelectedColorIndex(int index);
-  incrementQuantity();
-  decrementQuantity();
+abstract class CartController extends GetxController {
+  removeCart(itemId);
+  addCart(itemId);
 }
 
-class ProductDetailsImp extends ProductDetails {
-  late ItemsModel itemsModel;
-  int selectedColorIndex = 0;
-  int productQuantity = 1;
-  bool isExpanded = false;
-  int count = 0;
-
+class CartControllerImp extends CartController {
   MyServices myServices = Get.find();
   CartData cartData = CartData(Get.find());
   List<CartModel> data = [];
   StatusRequest statusRequest = StatusRequest.none;
+  Map isFavorite = {};
+  int allItemsCount = 0;
+  double allPriceCount = 0.0;
 
   addCart(itemId) async {
     var response = await cartData.addCartData(
@@ -68,34 +61,6 @@ class ProductDetailsImp extends ProductDetails {
     update();
   }
 
-  void toggleExpand() {
-    isExpanded = !isExpanded;
-    update();
-  }
-
-  void incrementQuantity() {
-    count++;
-    update();
-  }
-
-  void decrementQuantity() {
-    if (count > 0) {
-      count--;
-      update();
-    }
-  }
-
-  List<Map<String, dynamic>> colorData = [
-    {"name": Colors.red, "id": 1, "active": 0},
-    {"name": Colors.yellow, "id": 2, "active": 0},
-    {"name": Colors.blue, "id": 3, "active": 1},
-  ];
-
-  void setSelectedColorIndex(index) {
-    selectedColorIndex = index;
-    update();
-  }
-
   getCountCart(itemId) async {
     var response = await cartData.getCountCartData(
       myServices.sharedPreferences.getInt("id").toString(),
@@ -114,16 +79,41 @@ class ProductDetailsImp extends ProductDetails {
     update();
   }
 
-  @override
-  initData() async {
-    itemsModel = Get.arguments['itemsModel'];
-    count = await getCountCart(itemsModel.itemId);
+  cardView() async {
+    print("fsjdfhjdshfkldsjhfkdsjfkds");
+    var response = await cartData.getCards(
+      myServices.sharedPreferences.getInt("id").toString(),
+    );
+    statusRequest = handlingData(response);
+    if (StatusRequest.success == statusRequest) {
+      if (response["status"] == "success") {
+        List resposeData = response["dataCart"];
+        print(resposeData);
+        Map priceAndCountResponso = response["countprice"];
+        data.clear();
+        data.addAll(resposeData.map((e) => CartModel.fromJson(e)));
+        allItemsCount =
+            int.parse(priceAndCountResponso["totalCount"].toString());
+        allPriceCount =
+            double.parse(priceAndCountResponso["totalprice"].toString());
+      } else {
+        statusRequest = StatusRequest.failure;
+      }
+    }
+    update();
+  }
+
+  refreshCardCount() {
+    allItemsCount = 0;
+    allPriceCount = 0.0;
+    data.clear();
+    cardView();
     update();
   }
 
   @override
   void onInit() {
-    initData();
+    cardView();
     super.onInit();
   }
 }

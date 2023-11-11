@@ -1,3 +1,4 @@
+import 'package:e_shopping/core/constants/router_name.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -231,7 +232,10 @@ class ProductDetials extends StatelessWidget {
                     Row(
                       children: [
                         IconButton(
-                          onPressed: controller.decrementQuantity,
+                          onPressed: () {
+                            controller.removeCart(controller.itemsModel.itemId);
+                            controller.decrementQuantity();
+                          },
                           icon: Icon(
                             Icons.remove,
                             color: AppColor.primaryColor,
@@ -246,7 +250,7 @@ class ProductDetials extends StatelessWidget {
                           width: 20,
                         ),
                         Text(
-                          '${controller.productQuantity}',
+                          '${controller.count}',
                           style: TextStyle(
                             fontSize: 18,
                             color: Colors.black,
@@ -261,7 +265,10 @@ class ProductDetials extends StatelessWidget {
                           color: AppColor.greylight,
                         ),
                         IconButton(
-                          onPressed: controller.incrementQuantity,
+                          onPressed: () {
+                            controller.addCart(controller.itemsModel.itemId);
+                            controller.incrementQuantity();
+                          },
                           icon: Icon(
                             Icons.add,
                             color: AppColor.primaryColor,
@@ -279,8 +286,10 @@ class ProductDetials extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: CustomTextButtonAuth(
-                text: 'Add to Cart',
-                onPressed: () {},
+                text: 'Go to Cart',
+                onPressed: () {
+                  Get.toNamed(AppRoutes.cart);
+                },
               ),
             ),
             SizedBox(height: 30),

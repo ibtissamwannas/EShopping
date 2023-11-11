@@ -1,4 +1,5 @@
 import 'package:e_shopping/view/screens/favorite/favorite.dart';
+import 'package:e_shopping/view/screens/home/cart.dart';
 import 'package:e_shopping/view/screens/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -14,7 +15,7 @@ class bottomNavigationBarControllerImp extends bottomNavigationBarController {
   List<Widget> listPage = [
     const Home(),
     const Home(),
-    const Home(),
+    const Cart(),
     const FavoriteScreen(),
     const Setting(),
   ];

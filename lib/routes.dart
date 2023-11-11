@@ -8,12 +8,14 @@ import 'package:e_shopping/view/screens/auth/success_sign_up.dart';
 import 'package:e_shopping/view/screens/auth/forgetpassword/verify_code.dart';
 import 'package:e_shopping/view/screens/auth/verify_code_sign_up.dart';
 import 'package:e_shopping/view/screens/favorite/favorite.dart';
+import 'package:e_shopping/view/screens/home/cart.dart';
 import 'package:e_shopping/view/screens/home/items.dart';
 import 'package:e_shopping/view/screens/bottom_navigation_bar.dart';
 import 'package:e_shopping/view/screens/language.dart';
 import 'package:e_shopping/view/screens/onboarding.dart';
 import 'package:e_shopping/view/screens/product/product_details.dart';
 import 'package:get/get.dart';
+
 import 'core/middleware/my_middleware.dart';
 
 List<GetPage<dynamic>>? routes = [
@@ -73,5 +75,9 @@ List<GetPage<dynamic>>? routes = [
   GetPage(
     name: AppRoutes.favorite,
     page: () => FavoriteScreen(),
+  ),
+  GetPage(
+    name: AppRoutes.cart,
+    page: () => Cart(),
   ),
 ];

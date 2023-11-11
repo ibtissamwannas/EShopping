@@ -22,7 +22,6 @@ class allFavoriteControllerImp extends allFavoriteController {
     var response = await allfavoriteData.getData(
       myServices.sharedPreferences.getInt("id").toString(),
     );
-    print(response);
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response["status"] == "success") {
@@ -62,7 +61,6 @@ class allFavoriteControllerImp extends allFavoriteController {
 
   @override
   void onInit() {
-    print("innnnnnnnnnn");
     getAllFavorite();
 
     super.onInit();

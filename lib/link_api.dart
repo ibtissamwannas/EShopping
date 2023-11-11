@@ -33,4 +33,16 @@ class AppLinkApi {
 
   //ALL favorite
   static const String allFavorite = "$server/favorite/favoriteview.php";
+
+  //cart View
+  static const String cartView = "$server/cart/view.php";
+
+  //cart add
+  static const String cartAdd = "$server/cart/add.php";
+
+  //cart remove
+  static const String cardRemove = "$server/cart/remove.php";
+
+  //cart get count
+  static const String getCount = "$server/cart/getcountitems.php";
 }
