@@ -1,6 +1,9 @@
 import 'package:e_shopping/core/constants/router_name.dart';
 import 'package:e_shopping/core/services/my_services.dart';
 import 'package:e_shopping/data/datasource/remote/home/home_data.dart';
+import 'package:e_shopping/data/datasource/remote/search_data.dart';
+import 'package:e_shopping/data/model/items_model.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../core/classes/status_request.dart';
 import '../../core/functions/handling_data.dart';
@@ -10,6 +13,7 @@ abstract class HomeController extends GetxController {
   getData();
   onPageChanged(int index);
   goToSpecificItem(List categories, int selectedCat, String categoryId);
+  goToProductDetails(itemsModel);
 }
 
 class HomeControllerImp extends HomeController {
@@ -23,6 +27,34 @@ class HomeControllerImp extends HomeController {
   List items = [];
   List categories = [];
   late StatusRequest statusRequest;
+  SearchData searchData = SearchData(Get.find());
+  late TextEditingController searchCntroller;
+  bool isSearch = false;
+  List<ItemsModel> itemsSearch = [];
+  ItemsModel? itemsModel;
+
+  checkval(val) {
+    if (val == "") {
+      isSearch = false;
+      itemsSearch.clear();
+    } else {
+      isSearch = true;
+    }
+    update();
+  }
+
+  onSearchItems() {
+    isSearch = true;
+    itemsSearch.clear();
+    search();
+    update();
+  }
+
+  @override
+  goToProductDetails(itemsModel) {
+    Get.toNamed(AppRoutes.productDetails,
+        arguments: {"itemsModel": itemsModel});
+  }
 
   @override
   initialData() {
@@ -57,6 +89,21 @@ class HomeControllerImp extends HomeController {
     });
   }
 
+  search() async {
+    statusRequest = StatusRequest.loading;
+    var response = await searchData.searchData(searchCntroller.text);
+    statusRequest = handlingData(response);
+    if (StatusRequest.success == statusRequest) {
+      if (response["status"] == "success") {
+        List responseData = response["data"];
+        itemsSearch.addAll(responseData.map((e) => ItemsModel.fromJson(e)));
+      } else {
+        statusRequest = StatusRequest.failure;
+      }
+    }
+    update();
+  }
+
   @override
   onPageChanged(int index) {
     current_slider = index;
@@ -65,6 +112,7 @@ class HomeControllerImp extends HomeController {
 
   @override
   void onInit() {
+    searchCntroller = TextEditingController();
     initialData();
     getData();
     print(statusRequest);

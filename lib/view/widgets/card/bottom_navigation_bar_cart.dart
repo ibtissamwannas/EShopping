@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import '../../../core/constants/colors.dart';
 
 class BottomNaigationCart extends StatelessWidget {
-  final double price;
+  final String price;
   final double totalPrice;
   final double tax;
   const BottomNaigationCart({

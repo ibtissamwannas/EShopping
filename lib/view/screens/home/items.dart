@@ -54,7 +54,7 @@ class Items extends StatelessWidget {
                             gridDelegate:
                                 SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 2,
-                              childAspectRatio: 0.81,
+                              childAspectRatio: 0.72,
                             ),
                             itemBuilder: (context, index) {
                               favController.isFavorite[controller.data[index]

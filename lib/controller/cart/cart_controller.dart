@@ -19,7 +19,7 @@ class CartControllerImp extends CartController {
   StatusRequest statusRequest = StatusRequest.none;
   Map isFavorite = {};
   int allItemsCount = 0;
-  double allPriceCount = 0.0;
+  String? allPriceCount;
 
   addCart(itemId) async {
     var response = await cartData.addCartData(
@@ -94,8 +94,15 @@ class CartControllerImp extends CartController {
         data.addAll(resposeData.map((e) => CartModel.fromJson(e)));
         allItemsCount =
             int.parse(priceAndCountResponso["totalCount"].toString());
-        allPriceCount =
-            double.parse(priceAndCountResponso["totalprice"].toString());
+        double totalPrice = priceAndCountResponso["totalprice"];
+        String numberAsString = totalPrice.toString();
+        int dotIndex = numberAsString.indexOf('.');
+
+        if (dotIndex != -1) {
+          allPriceCount = numberAsString.substring(0, dotIndex);
+        } else {
+          allPriceCount = numberAsString;
+        }
       } else {
         statusRequest = StatusRequest.failure;
       }
@@ -105,7 +112,7 @@ class CartControllerImp extends CartController {
 
   refreshCardCount() {
     allItemsCount = 0;
-    allPriceCount = 0.0;
+    allPriceCount;
     data.clear();
     cardView();
     update();

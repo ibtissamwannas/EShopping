@@ -15,7 +15,7 @@ class Cart extends StatelessWidget {
     return Scaffold(bottomNavigationBar:
         GetBuilder<CartControllerImp>(builder: (controller) {
       return BottomNaigationCart(
-        price: controller.allPriceCount,
+        price: controller.allPriceCount??"0",
         tax: 20,
         totalPrice: 40,
       );

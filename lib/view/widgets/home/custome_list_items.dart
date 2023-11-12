@@ -40,7 +40,7 @@ class CustomeListItems extends GetView<ItemsControllerImp> {
                   tag: "${itemsModel.itemId}",
                   child: CachedNetworkImage(
                     width: double.infinity,
-                    height: 150,
+                    height: 170,
                     imageUrl:
                         "${AppLinkApi.itemsImages}/${itemsModel.itemImage}",
                     progressIndicatorBuilder:
@@ -68,9 +68,29 @@ class CustomeListItems extends GetView<ItemsControllerImp> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        "${itemsModel.itemPrice}\$",
-                        style: Theme.of(context).textTheme.labelLarge,
+                      Row(
+                        children: [
+                          Text(
+                            "${itemsModel.itemPrice}\$",
+                            style: TextStyle(
+                              decoration: itemsModel.itemDiscount != 0
+                                  ? TextDecoration.lineThrough
+                                  : TextDecoration.none,
+                            ),
+                          ),
+                          itemsModel.itemDiscount != 0
+                              ? Padding(
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: Text(
+                                    "${itemsModel.discountPrice}\$",
+                                    style: TextStyle(
+                                      color: AppColor.primaryColor,
+                                      fontSize: 12,
+                                    ),
+                                  ),
+                                )
+                              : Container()
+                        ],
                       ),
                       itemsModel.itemDiscount != 0
                           ? Container(

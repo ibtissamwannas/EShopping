@@ -14,7 +14,7 @@ class CartModel {
   String? itemTake;
   int? itemCategoryId;
   int? countitems;
-  int? itemsprice;
+  var itemsprice;
 
   CartModel(
       {this.cartUserid,

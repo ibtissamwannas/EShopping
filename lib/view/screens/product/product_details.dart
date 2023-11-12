@@ -66,9 +66,31 @@ class ProductDetials extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          "${controller.itemsModel.itemPrice}\$",
-                          style: Theme.of(context).textTheme.displayMedium,
+                        Row(
+                          children: [
+                            Text(
+                              "${controller.itemsModel.itemPrice}\$",
+                              style: TextStyle(
+                                fontSize: 18,
+                                decoration:
+                                    controller.itemsModel.itemDiscount != 0
+                                        ? TextDecoration.lineThrough
+                                        : TextDecoration.none,
+                              ),
+                            ),
+                            controller.itemsModel.itemDiscount != 0
+                                ? Padding(
+                                    padding: const EdgeInsets.all(2.0),
+                                    child: Text(
+                                      "${controller.itemsModel.discountPrice}\$",
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        color: AppColor.primaryColor,
+                                      ),
+                                    ),
+                                  )
+                                : Container()
+                          ],
                         ),
                         SvgPicture.asset(
                           "assets/icons/heart.svg",

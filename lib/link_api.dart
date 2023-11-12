@@ -45,4 +45,7 @@ class AppLinkApi {
 
   //cart get count
   static const String getCount = "$server/cart/getcountitems.php";
+
+  //search
+  static const String search = "$server/items/search.php";
 }

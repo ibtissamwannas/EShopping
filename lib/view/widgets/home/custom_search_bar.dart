@@ -5,7 +5,15 @@ import '../../../core/constants/colors.dart';
 
 class CustomSearchBar extends StatelessWidget {
   final void Function()? onTap;
-  const CustomSearchBar({super.key, this.onTap});
+  final TextEditingController? controller;
+  final void Function(String)? onChanged;
+
+  const CustomSearchBar({
+    super.key,
+    this.onTap,
+    this.controller,
+    this.onChanged,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -13,6 +21,8 @@ class CustomSearchBar extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: TextFormField(
+          controller: controller,
+          onChanged: onChanged,
           decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(vertical: 18),
             border: OutlineInputBorder(
