@@ -104,6 +104,8 @@ class HomeControllerImp extends HomeController {
     update();
   }
 
+  
+
   @override
   onPageChanged(int index) {
     current_slider = index;

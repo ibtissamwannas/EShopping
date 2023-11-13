@@ -1,4 +1,8 @@
 import 'package:e_shopping/core/constants/router_name.dart';
+import 'package:e_shopping/view/screens/address/add.dart';
+import 'package:e_shopping/view/screens/address/add_address_two.dart';
+import 'package:e_shopping/view/screens/address/edit.dart';
+import 'package:e_shopping/view/screens/address/view.dart';
 import 'package:e_shopping/view/screens/auth/forgetpassword/forget_password.dart';
 import 'package:e_shopping/view/screens/auth/login.dart';
 import 'package:e_shopping/view/screens/auth/forgetpassword/reset_password.dart';
@@ -79,5 +83,21 @@ List<GetPage<dynamic>>? routes = [
   GetPage(
     name: AppRoutes.cart,
     page: () => Cart(),
+  ),
+  GetPage(
+    name: AppRoutes.addAddress,
+    page: () => AddAddress(),
+  ),
+  GetPage(
+    name: AppRoutes.editAddress,
+    page: () => EditAddress(),
+  ),
+  GetPage(
+    name: AppRoutes.AddressView,
+    page: () => AddressView(),
+  ),
+  GetPage(
+    name: AppRoutes.addAddressTwo,
+    page: () => AddAddressTwo(),
   ),
 ];

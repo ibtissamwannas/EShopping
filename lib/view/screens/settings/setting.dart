@@ -1,4 +1,5 @@
 import 'package:e_shopping/controller/settings_controller.dart';
+import 'package:e_shopping/core/constants/router_name.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../core/constants/colors.dart';
@@ -71,7 +72,9 @@ class Setting extends StatelessWidget {
                     ),
                   ),
                   ListTile(
-                    onTap: () {},
+                    onTap: () {
+                      Get.toNamed(AppRoutes.AddressView);
+                    },
                     title: Text("Address"),
                     trailing: Icon(Icons.location_on_outlined),
                   ),
