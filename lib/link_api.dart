@@ -48,4 +48,19 @@ class AppLinkApi {
 
   //search
   static const String search = "$server/items/search.php";
+
+  //view_address
+  static const String viewAddress = "$server/address/view.php";
+
+  //add_address
+  static const String addAddress = "$server/address/add.php";
+
+  //delete_address
+  static const String deleteAddress = "$server/address/remove.php";
+
+  //edit_address
+  static const String editAddress = "$server/address/edit.php";
+
+  //coupon
+  static const String checkCoupon = "$server/coupon/check_coupon.php";
 }

@@ -34,13 +34,14 @@ class _CustomTextFormState extends State<CustomTextForm> {
       validator: widget.validator,
       decoration: InputDecoration(
         prefixIcon: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: SvgPicture.asset(
-            widget.svgPicture,
-            // width: 24,
-            // height: 24,
-          ),
-        ),
+            padding: const EdgeInsets.all(12.0),
+            child: widget.svgPicture != ""
+                ? SvgPicture.asset(
+                    widget.svgPicture,
+                    // width: 24,
+                    // height: 24,
+                  )
+                : null),
         hintText: widget.hintText,
         hintStyle: Theme.of(context).textTheme.labelMedium,
         filled: true,

@@ -1,10 +1,13 @@
 import 'package:e_shopping/data/model/cart_model.dart';
+import 'package:e_shopping/data/model/coupon_model.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../core/classes/status_request.dart';
 import '../../core/functions/handling_data.dart';
 import '../../core/services/my_services.dart';
 import '../../data/datasource/remote/cart/add_cart_data.dart';
+import '../../data/datasource/remote/coupon.dart';
 import '../../view/widgets/snackbars/snackbar.dart';
 
 abstract class CartController extends GetxController {
@@ -19,7 +22,49 @@ class CartControllerImp extends CartController {
   StatusRequest statusRequest = StatusRequest.none;
   Map isFavorite = {};
   int allItemsCount = 0;
-  String? allPriceCount;
+  String allPriceCount = "";
+  late TextEditingController controller;
+  CheckCouponData checkCouponData = CheckCouponData(Get.find());
+  CouponModel? model;
+  double discount = 0;
+  String? name;
+
+  onPress() async {
+    var response = await checkCouponData.getData(controller.text);
+    statusRequest = handlingData(response);
+    if (StatusRequest.success == statusRequest) {
+      update();
+      if (response["status"] == "success") {
+        Map<String, dynamic> dataCoupon = response["data"];
+        model = CouponModel.fromJson(dataCoupon);
+        discount = double.parse(model!.couponDiscount.toString());
+        name = model!.couponName.toString();
+        update();
+      } else {
+        discount = 0;
+        name = null;
+        update();
+      }
+    }
+  }
+
+  double getTotalPrice() {
+    if (allPriceCount.isEmpty) {
+      return 0.0;
+    }
+
+    String cleanedPrice = allPriceCount.replaceAll(RegExp(r'[^\d.]'), '');
+
+    try {
+      double totalPrice = double.parse(cleanedPrice);
+      double discountedAmount = totalPrice * (discount / 100);
+      double discountedPrice = totalPrice - discountedAmount;
+      return discountedPrice;
+    } catch (e) {
+      print("Error parsing double: $e");
+      return 0.0;
+    }
+  }
 
   addCart(itemId) async {
     var response = await cartData.addCartData(
@@ -120,6 +165,7 @@ class CartControllerImp extends CartController {
 
   @override
   void onInit() {
+    controller = TextEditingController();
     cardView();
     super.onInit();
   }
