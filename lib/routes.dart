@@ -3,6 +3,9 @@ import 'package:e_shopping/view/screens/address/add.dart';
 import 'package:e_shopping/view/screens/address/add_address_two.dart';
 import 'package:e_shopping/view/screens/address/edit.dart';
 import 'package:e_shopping/view/screens/address/view.dart';
+import 'package:e_shopping/view/screens/allorders/all_orders.dart';
+import 'package:e_shopping/view/screens/allorders/archieve_orders.dart';
+import 'package:e_shopping/view/screens/allorders/details.dart';
 import 'package:e_shopping/view/screens/auth/forgetpassword/forget_password.dart';
 import 'package:e_shopping/view/screens/auth/login.dart';
 import 'package:e_shopping/view/screens/auth/forgetpassword/reset_password.dart';
@@ -13,6 +16,7 @@ import 'package:e_shopping/view/screens/auth/forgetpassword/verify_code.dart';
 import 'package:e_shopping/view/screens/auth/verify_code_sign_up.dart';
 import 'package:e_shopping/view/screens/favorite/favorite.dart';
 import 'package:e_shopping/view/screens/home/cart.dart';
+import 'package:e_shopping/view/screens/home/checkout.dart';
 import 'package:e_shopping/view/screens/home/items.dart';
 import 'package:e_shopping/view/screens/bottom_navigation_bar.dart';
 import 'package:e_shopping/view/screens/language.dart';
@@ -99,5 +103,21 @@ List<GetPage<dynamic>>? routes = [
   GetPage(
     name: AppRoutes.addAddressTwo,
     page: () => AddAddressTwo(),
+  ),
+  GetPage(
+    name: AppRoutes.checkOutScreen,
+    page: () => CheckOut(),
+  ),
+  GetPage(
+    name: AppRoutes.allorder,
+    page: () => AllOrders(),
+  ),
+  GetPage(
+    name: AppRoutes.allorder,
+    page: () => ArchieveOrders(),
+  ),
+  GetPage(
+    name: AppRoutes.detailsOrder,
+    page: () => Details(),
   ),
 ];

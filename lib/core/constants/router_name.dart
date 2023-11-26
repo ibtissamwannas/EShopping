@@ -18,4 +18,8 @@ class AppRoutes {
   static const String addAddressTwo = '/addAddressTwo';
   static const String editAddress = '/editAddress';
   static const String AddressView = '/AddressView';
+  static const String checkOutScreen = '/CheckOutScreen';
+  static const String allorder = '/allorder';
+  static const String archieveOrder = '/archieveOrder';
+  static const String detailsOrder = '/detailsOrder';
 }

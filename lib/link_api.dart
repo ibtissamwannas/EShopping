@@ -1,10 +1,10 @@
 class AppLinkApi {
   //http://localhost/ecommerce
   //http://ecommerce245.000webhostapp.com
-  static const String server = "http://localhost:8888/ecommerce";
+  static const String server = "http://10.0.2.2:8888/ecommerce";
   //images
   static const String imagesLinkStatic =
-      "http://localhost:8888/ecommerce/upload";
+      "http://10.0.2.2:8888/ecommerce/upload";
   static const String categoriesImages = "$imagesLinkStatic/categories";
   static const String itemsImages = "$imagesLinkStatic/items";
   static const String test = "${server}/test.php";
@@ -63,4 +63,22 @@ class AppLinkApi {
 
   //coupon
   static const String checkCoupon = "$server/coupon/check_coupon.php";
+
+  //checkout
+  static const String checkout = "$server/coupon/check_coupon.php";
+
+  //checkoutadd
+  static const String checkoutOrder = "$server/orders/add.php";
+
+  //allorders
+  static const String allorders = "$server/orders/allorders.php";
+
+  //archieve
+  static const String archieveorders = "$server/orders/archieveorders.php";
+
+  //notification
+  static const String notificationApi = "$server/orders/notification.php";
+
+  //details order
+  static const String orderDetails = "$server/orders/details.php";
 }

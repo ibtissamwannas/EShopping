@@ -30,10 +30,10 @@ class ProductDetials extends StatelessWidget {
         ),
       ),
       body: GetBuilder<ProductDetailsImp>(
-        builder: (controller) => Column(
-          children: [
-            SingleChildScrollView(
-              child: Column(
+        builder: (controller) => SingleChildScrollView(
+          child: Column(
+            children: [
+              Column(
                 children: [
                   Container(
                     height: 300,
@@ -229,93 +229,94 @@ class ProductDetials extends StatelessWidget {
                   ),
                 ],
               ),
-            ),
-            Spacer(),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Container(
-                height: 60,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.white,
-                  border: Border.all(
-                    width: 1,
-                    color: AppColor.backgroundGreyColor,
+              Spacer(),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Container(
+                  height: 60,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.white,
+                    border: Border.all(
+                      width: 1,
+                      color: AppColor.backgroundGreyColor,
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        child: Text("Quantity"),
+                      ),
+                      Row(
+                        children: [
+                          IconButton(
+                            onPressed: () {
+                              controller
+                                  .removeCart(controller.itemsModel.itemId);
+                              controller.decrementQuantity();
+                            },
+                            icon: Icon(
+                              Icons.remove,
+                              color: AppColor.primaryColor,
+                            ),
+                          ),
+                          Container(
+                            height: 60,
+                            width: 1,
+                            color: AppColor.greylight,
+                          ),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Text(
+                            '${controller.count}',
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.black,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Container(
+                            height: 60,
+                            width: 1,
+                            color: AppColor.greylight,
+                          ),
+                          IconButton(
+                            onPressed: () {
+                              controller.addCart(controller.itemsModel.itemId);
+                              controller.incrementQuantity();
+                            },
+                            icon: Icon(
+                              Icons.add,
+                              color: AppColor.primaryColor,
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
                   ),
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
-                      child: Text("Quantity"),
-                    ),
-                    Row(
-                      children: [
-                        IconButton(
-                          onPressed: () {
-                            controller.removeCart(controller.itemsModel.itemId);
-                            controller.decrementQuantity();
-                          },
-                          icon: Icon(
-                            Icons.remove,
-                            color: AppColor.primaryColor,
-                          ),
-                        ),
-                        Container(
-                          height: 60,
-                          width: 1,
-                          color: AppColor.greylight,
-                        ),
-                        SizedBox(
-                          width: 20,
-                        ),
-                        Text(
-                          '${controller.count}',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.black,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 20,
-                        ),
-                        Container(
-                          height: 60,
-                          width: 1,
-                          color: AppColor.greylight,
-                        ),
-                        IconButton(
-                          onPressed: () {
-                            controller.addCart(controller.itemsModel.itemId);
-                            controller.incrementQuantity();
-                          },
-                          icon: Icon(
-                            Icons.add,
-                            color: AppColor.primaryColor,
-                          ),
-                        ),
-                      ],
-                    )
-                  ],
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: CustomTextButtonAuth(
+                  text: 'Go to Cart',
+                  onPressed: () {
+                    Get.toNamed(AppRoutes.cart);
+                  },
                 ),
               ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: CustomTextButtonAuth(
-                text: 'Go to Cart',
-                onPressed: () {
-                  Get.toNamed(AppRoutes.cart);
-                },
-              ),
-            ),
-            SizedBox(height: 30),
-          ],
+              SizedBox(height: 30),
+            ],
+          ),
         ),
       ),
     );

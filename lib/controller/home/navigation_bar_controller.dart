@@ -4,6 +4,7 @@ import 'package:e_shopping/view/screens/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../view/screens/notification.dart';
 import '../../view/screens/settings/setting.dart';
 
 abstract class bottomNavigationBarController extends GetxController {
@@ -14,7 +15,7 @@ class bottomNavigationBarControllerImp extends bottomNavigationBarController {
   int currentpage = 0;
   List<Widget> listPage = [
     const Home(),
-    const Home(),
+    const NotificationScreen(),
     const Cart(),
     const FavoriteScreen(),
     const Setting(),

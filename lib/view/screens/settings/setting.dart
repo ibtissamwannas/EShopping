@@ -79,6 +79,20 @@ class Setting extends StatelessWidget {
                     trailing: Icon(Icons.location_on_outlined),
                   ),
                   ListTile(
+                    onTap: () {
+                      Get.toNamed(AppRoutes.allorder);
+                    },
+                    title: Text("Orders"),
+                    trailing: Icon(Icons.delivery_dining),
+                  ),
+                  ListTile(
+                    onTap: () {
+                      Get.toNamed(AppRoutes.archieveOrder);
+                    },
+                    title: Text("Archieve"),
+                    trailing: Icon(Icons.delivery_dining),
+                  ),
+                  ListTile(
                     onTap: () {},
                     title: Text("About Us"),
                     trailing: Icon(Icons.help_outline_outlined),

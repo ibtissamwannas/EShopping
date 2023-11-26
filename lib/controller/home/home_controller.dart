@@ -3,6 +3,7 @@ import 'package:e_shopping/core/services/my_services.dart';
 import 'package:e_shopping/data/datasource/remote/home/home_data.dart';
 import 'package:e_shopping/data/datasource/remote/search_data.dart';
 import 'package:e_shopping/data/model/items_model.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../core/classes/status_request.dart';
@@ -104,8 +105,6 @@ class HomeControllerImp extends HomeController {
     update();
   }
 
-  
-
   @override
   onPageChanged(int index) {
     current_slider = index;
@@ -115,6 +114,8 @@ class HomeControllerImp extends HomeController {
   @override
   void onInit() {
     searchCntroller = TextEditingController();
+    var id = myServices.sharedPreferences.getInt("id").toString();
+    FirebaseMessaging.instance.subscribeToTopic("users$id");
     initialData();
     getData();
     print(statusRequest);

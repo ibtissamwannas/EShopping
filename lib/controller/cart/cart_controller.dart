@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../core/classes/status_request.dart';
+import '../../core/constants/router_name.dart';
 import '../../core/functions/handling_data.dart';
 import '../../core/services/my_services.dart';
 import '../../data/datasource/remote/cart/add_cart_data.dart';
@@ -28,6 +29,7 @@ class CartControllerImp extends CartController {
   CouponModel? model;
   double discount = 0;
   String? name;
+  String? couponId;
 
   onPress() async {
     var response = await checkCouponData.getData(controller.text);
@@ -39,6 +41,7 @@ class CartControllerImp extends CartController {
         model = CouponModel.fromJson(dataCoupon);
         discount = double.parse(model!.couponDiscount.toString());
         name = model!.couponName.toString();
+        couponId = model!.couponId.toString();
         update();
       } else {
         discount = 0;
@@ -46,6 +49,17 @@ class CartControllerImp extends CartController {
         update();
       }
     }
+  }
+
+  goToCheckout() {
+    if (data.isEmpty) {
+      return Get.snackbar("empty", "The cart is empty");
+    }
+    Get.toNamed(AppRoutes.checkOutScreen, arguments: {
+      "coupon_id": couponId ?? "",
+      "price_order": allPriceCount,
+      "discount": discount.toString()
+    });
   }
 
   double getTotalPrice() {
@@ -125,7 +139,6 @@ class CartControllerImp extends CartController {
   }
 
   cardView() async {
-    print("fsjdfhjdshfkldsjhfkdsjfkds");
     var response = await cartData.getCards(
       myServices.sharedPreferences.getInt("id").toString(),
     );
@@ -133,13 +146,12 @@ class CartControllerImp extends CartController {
     if (StatusRequest.success == statusRequest) {
       if (response["status"] == "success") {
         List resposeData = response["dataCart"];
-        print(resposeData);
         Map priceAndCountResponso = response["countprice"];
         data.clear();
         data.addAll(resposeData.map((e) => CartModel.fromJson(e)));
         allItemsCount =
             int.parse(priceAndCountResponso["totalCount"].toString());
-        double totalPrice = priceAndCountResponso["totalprice"];
+        var totalPrice = priceAndCountResponso["totalprice"];
         String numberAsString = totalPrice.toString();
         int dotIndex = numberAsString.indexOf('.');
 

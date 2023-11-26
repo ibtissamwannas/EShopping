@@ -198,7 +198,9 @@ class BottomNaigationCart extends GetView<CartControllerImp> {
                     borderRadius: BorderRadius.circular(10.0),
                     // side: BorderSide(color: Colors.red)
                   ))),
-              onPressed: () {},
+              onPressed: () {
+                controller.goToCheckout();
+              },
               child: Text(
                 "Order Now",
               ),
