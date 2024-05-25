@@ -81,4 +81,10 @@ class AppLinkApi {
 
   //details order
   static const String orderDetails = "$server/orders/details.php";
+
+  //details delete
+  static const String deleteOrder = "$server/orders/delete.php";
+
+  //details pending
+  static const String pendingOrders = "$server/orders/pending.php";
 }

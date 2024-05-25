@@ -22,6 +22,7 @@ import 'package:e_shopping/view/screens/bottom_navigation_bar.dart';
 import 'package:e_shopping/view/screens/language.dart';
 import 'package:e_shopping/view/screens/onboarding.dart';
 import 'package:e_shopping/view/screens/product/product_details.dart';
+import 'package:e_shopping/view/screens/settings/tracking_live.dart';
 import 'package:get/get.dart';
 
 import 'core/middleware/my_middleware.dart';
@@ -113,11 +114,15 @@ List<GetPage<dynamic>>? routes = [
     page: () => AllOrders(),
   ),
   GetPage(
-    name: AppRoutes.allorder,
+    name: AppRoutes.archieveOrder,
     page: () => ArchieveOrders(),
   ),
   GetPage(
     name: AppRoutes.detailsOrder,
     page: () => Details(),
+  ),
+  GetPage(
+    name: AppRoutes.tracking,
+    page: () => TrackingLive(),
   ),
 ];

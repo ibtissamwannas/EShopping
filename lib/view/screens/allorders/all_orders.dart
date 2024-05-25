@@ -73,7 +73,7 @@ class AllOrders extends StatelessWidget {
                                 height: 20,
                               ),
                               Text(
-                                "Order Payment : ${controller.data[index].orderStatus == 0 ? "Pending approval" : controller.data[index].orderStatus == 0 ? "The order is beign prepared" : "on the way"}",
+                                "Order status : ${controller.data[index].orderStatus == 0 ? "Pending approval" : controller.data[index].orderStatus == 1 ? "The order is beign prepared" : controller.data[index].orderStatus == 2 ? "Ready to prepare" : controller.data[index].orderStatus == 3 ? "On the way" : "Archieve"}",
                               ),
                               SizedBox(
                                 height: 20,
@@ -87,6 +87,7 @@ class AllOrders extends StatelessWidget {
                                     // controller.data[index].ordresTime
                                     Jiffy(controller.data[index].ordresTime, 'yyyy-MM-dd').fromNow()}",
                                   ),
+                                  // if (controller.data[index].ordersType == 0)
                                   ElevatedButton(
                                     onPressed: () {
                                       Get.toNamed(AppRoutes.detailsOrder,
@@ -97,7 +98,17 @@ class AllOrders extends StatelessWidget {
                                     child: Text(
                                       "Details",
                                     ),
-                                  )
+                                  ),
+                                  if (controller.data[index].orderStatus == 0)
+                                    ElevatedButton(
+                                      onPressed: () {
+                                        controller.deleteOrder(
+                                            controller.data[index].id);
+                                      },
+                                      child: Text(
+                                        "delete",
+                                      ),
+                                    )
                                 ],
                               ),
                               SizedBox(

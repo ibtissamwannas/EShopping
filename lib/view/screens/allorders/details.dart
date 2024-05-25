@@ -10,6 +10,7 @@ class Details extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(DetailsControllerImp());
+
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
@@ -31,56 +32,84 @@ class Details extends StatelessWidget {
         ),
         body: GetBuilder<DetailsControllerImp>(
           builder: (controller) {
-            return ListView(
-              children: [
-                SizedBox(
-                  height: 30,
-                ),
-                Table(
-                  children: [
-                    TableRow(children: [
-                      Text(
-                        "Type",
-                        textAlign: TextAlign.center,
-                      ),
-                      Text(
-                        "Quantity",
-                        textAlign: TextAlign.center,
-                      ),
-                      Text(
-                        "price",
-                        textAlign: TextAlign.center,
-                      ),
-                    ])
-                  ],
-                ),
-                Text(
-                  "Total Price :  200",
-                  textAlign: TextAlign.center,
-                ),
-                Card(
-                  child: ListTile(
-                    title: Text("${controller.orderModel.city}"),
-                    subtitle: Text("${controller.orderModel.name}"),
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Container(
-                  padding: EdgeInsets.all(20),
-                  height: 300,
-                  child: GoogleMap(
-                    markers: controller.markers.toSet(),
-                    mapType: MapType.normal,
-                    initialCameraPosition: controller.kGooglePlex!,
-                    onMapCreated: (GoogleMapController controllerM) {
-                      controller.controllerMap?.complete(controllerM);
-                    },
-                  ),
-                )
-              ],
+            return Container(
+              // height: 300,
+              child: GoogleMap(
+                polylines: controller.polyLineSet,
+                markers: controller.markers.toSet(),
+                mapType: MapType.normal,
+                initialCameraPosition: controller.kGooglePlex!,
+                onMapCreated: (GoogleMapController controllerM) {
+                  controller.controllerMap = controllerM;
+                },
+              ),
             );
+            // return ListView(
+            //   children: [
+            //     SizedBox(
+            //       height: 30,
+            //     ),
+            //     Table(
+            //       children: [
+            //         TableRow(children: [
+            //           Text(
+            //             "Type",
+            //             textAlign: TextAlign.center,
+            //           ),
+            //           Text(
+            //             "Quantity",
+            //             textAlign: TextAlign.center,
+            //           ),
+            //           Text(
+            //             "price",
+            //             textAlign: TextAlign.center,
+            //           ),
+            //         ]),
+            //         ...List.generate(
+            //             controller.data.length,
+            //             (index) => TableRow(children: [
+            //                   Text(
+            //                     "${controller.data[index].itemName}",
+            //                     textAlign: TextAlign.center,
+            //                   ),
+            //                   Text(
+            //                     "${controller.data[index].countitems}",
+            //                     textAlign: TextAlign.center,
+            //                   ),
+            //                   Text(
+            //                     "${controller.data[index].itemPrice}",
+            //                     textAlign: TextAlign.center,
+            //                   ),
+            //                 ]))
+            //       ],
+            //     ),
+            //     Text(
+            //       "Total Price :  ${controller.orderModel.orderTotalprice}",
+            //       textAlign: TextAlign.center,
+            //     ),
+            //     Card(
+            //       child: ListTile(
+            //         title: Text("${controller.orderModel.city}"),
+            //         subtitle: Text("${controller.orderModel.name}"),
+            //       ),
+            //     ),
+            //     SizedBox(
+            //       height: 20,
+            //     ),
+            //     Container(
+            //       padding: EdgeInsets.all(20),
+            //       height: 300,
+            //       child: GoogleMap(
+            //         markers: controller.markers.toSet(),
+            //         mapType: MapType.normal,
+            //         initialCameraPosition: controller.kGooglePlex!,
+            //         onMapCreated: (GoogleMapController controllerM) {
+            //           controller.controllerMap?.complete(controllerM);
+            //         },
+            //       ),
+            //     )
+            //   ],
+            // );
           },
         ));
   }

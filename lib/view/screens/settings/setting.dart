@@ -2,6 +2,7 @@ import 'package:e_shopping/controller/settings_controller.dart';
 import 'package:e_shopping/core/constants/router_name.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../../core/constants/colors.dart';
 
 class Setting extends StatelessWidget {
@@ -98,7 +99,9 @@ class Setting extends StatelessWidget {
                     trailing: Icon(Icons.help_outline_outlined),
                   ),
                   ListTile(
-                    onTap: () {},
+                    onTap: () async {
+                      await launchUrl(Uri.parse("tel:+96171116962"));
+                    },
                     title: Text("Contact Us"),
                     trailing: Icon(Icons.phone),
                   ),
@@ -108,6 +111,13 @@ class Setting extends StatelessWidget {
                     },
                     title: Text("Logout"),
                     trailing: Icon(Icons.logout),
+                  ),
+                  ListTile(
+                    onTap: () {
+                      Get.toNamed(AppRoutes.tracking);
+                    },
+                    title: Text("Approve"),
+                    trailing: Icon(Icons.done),
                   ),
                 ],
               ),

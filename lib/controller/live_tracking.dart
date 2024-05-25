@@ -1,13 +1,28 @@
 import 'dart:async';
-import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import '../core/classes/status_request.dart';
 
-abstract class addAddressController extends GetxController {}
+class Tracking extends GetxController {
+  StreamSubscription<Position>? positionStream;
+  getCurrentLocation() {
+    positionStream =
+        Geolocator.getPositionStream().listen((Position? position) {
+      print("${position!.latitude.toString()}");
+      print("Fdglkjfdklgd");
+      print(" ${position.longitude.toString()}");
+      lat = position.latitude;
+      long = position.longitude;
+     
+    });
+    kGooglePlex = CameraPosition(
+      target: LatLng(14.0, 15.0),
+      zoom: 50,
+    );
+  }
 
-class addAddressControllerImp extends addAddressController {
   Completer<GoogleMapController>? controllerMap;
   Position? position;
   StatusRequest statusRequest = StatusRequest.none;
@@ -16,21 +31,6 @@ class addAddressControllerImp extends addAddressController {
 
   double? lat;
   double? long;
-
-  getCurrentLocation() async {
-    statusRequest = StatusRequest.loading;
-    update();
-    position = await Geolocator.getCurrentPosition();
-    kGooglePlex = CameraPosition(
-      target: LatLng(position!.latitude, position!.longitude),
-      zoom: 14.4746,
-    );
-    addMarkers(
-      LatLng(position!.latitude, position!.longitude),
-    );
-    statusRequest = StatusRequest.none;
-    update();
-  }
 
   addMarkers(LatLng latlng) {
     markers.clear();

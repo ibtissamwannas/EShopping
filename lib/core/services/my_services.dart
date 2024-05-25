@@ -7,6 +7,7 @@ class MyServices extends GetxService {
   late SharedPreferences sharedPreferences;
 
   Future<MyServices> init() async {
+    sharedPreferences = await SharedPreferences.getInstance();
     await Firebase.initializeApp();
     FirebaseMessaging messaging = FirebaseMessaging.instance;
 
@@ -19,11 +20,13 @@ class MyServices extends GetxService {
       provisional: false,
       sound: true,
     );
-    sharedPreferences = await SharedPreferences.getInstance();
+
     return this;
   }
 }
 
 initializeServices() async {
+  print("Initializing services...");
+
   await Get.putAsync(() => MyServices().init());
 }

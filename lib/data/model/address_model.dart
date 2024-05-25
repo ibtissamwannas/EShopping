@@ -17,7 +17,7 @@ class AddressModelData {
       this.name});
 
   AddressModelData.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
+    id = json['address_id'];
     userId = json['user_id'];
     city = json['city'];
     street = json['street'];
@@ -28,7 +28,7 @@ class AddressModelData {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
+    data['address_id'] = this.id;
     data['user_id'] = this.userId;
     data['city'] = this.city;
     data['street'] = this.street;

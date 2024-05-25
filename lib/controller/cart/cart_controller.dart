@@ -33,6 +33,7 @@ class CartControllerImp extends CartController {
 
   onPress() async {
     var response = await checkCouponData.getData(controller.text);
+    print(response);
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       update();

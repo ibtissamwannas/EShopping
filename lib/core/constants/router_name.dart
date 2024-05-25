@@ -22,4 +22,5 @@ class AppRoutes {
   static const String allorder = '/allorder';
   static const String archieveOrder = '/archieveOrder';
   static const String detailsOrder = '/detailsOrder';
+  static const String tracking = '/tracking';
 }

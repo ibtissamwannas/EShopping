@@ -6,15 +6,14 @@ class OrderCheckoutData {
   OrderCheckoutData(this.crud);
 
   orderCheckoutData(
-    String userId,
-    String addressId,
-    String type,
-    String priceDevlivery,
-    String ordrePrice,
-    String couponId,
-    String paymentMethod,
-    String couponDiscount,
-  ) async {
+      String userId,
+      String addressId,
+      String type,
+      String priceDevlivery,
+      String ordrePrice,
+      String couponId,
+      String paymentMethod,
+      String couponDiscount) async {
     var response = await crud.postData(AppLinkApi.checkoutOrder, {
       'user_id': userId,
       'address_id': addressId,

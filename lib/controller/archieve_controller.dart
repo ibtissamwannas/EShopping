@@ -7,9 +7,9 @@ import '../../core/classes/status_request.dart';
 import '../core/functions/handling_data.dart';
 import '../data/model/all_orders_model.dart';
 
-abstract class AllOrdersController extends GetxController {}
+abstract class ArchieveController extends GetxController {}
 
-class AllOrdersControllerImp extends AllOrdersController {
+class ArchieveControllerImp extends ArchieveController {
   MyServices myServices = Get.find();
   AllOrdersData allOrdersData = AllOrdersData(Get.find());
   StatusRequest statusRequest = StatusRequest.none;
@@ -19,9 +19,10 @@ class AllOrdersControllerImp extends AllOrdersController {
     statusRequest = StatusRequest.loading;
     update();
 
-    var response = await allOrdersData.allOrderdData(
+    var response = await allOrdersData.archieveOrdersData(
       myServices.sharedPreferences.getInt("id").toString(),
     );
+
     print(response);
 
     statusRequest = handlingData(response);
@@ -33,27 +34,6 @@ class AllOrdersControllerImp extends AllOrdersController {
         data.addAll(d.map((e) => AllOrderModel.fromJson(e)));
         statusRequest = StatusRequest.success;
         update();
-      } else {
-        statusRequest = StatusRequest.failure;
-      }
-    }
-    update();
-  }
-
-  Future<void> deleteOrder(id) async {
-    statusRequest = StatusRequest.loading;
-    update();
-
-    var response = await allOrdersData.deleteOrder(
-      id.toString(),
-    );
-
-    print(response);
-
-    statusRequest = handlingData(response);
-    if (StatusRequest.success == statusRequest) {
-      if (response["status"] == "success") {
-        getData();
       } else {
         statusRequest = StatusRequest.failure;
       }
